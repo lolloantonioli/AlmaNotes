@@ -5,6 +5,14 @@ body > header, body > section:last-of-type {
     background-position: center;
 }
 
-body > nav > a > h1, body > button {
+h1, button {
     font-family: 'Merriweather Sans', sans-serif;
+}
+
+h2, h3, h4 {
+    font-family: 'Merriweather';
+}
+
+p, a {
+    font-family: 'Source Sans 3';
 }
