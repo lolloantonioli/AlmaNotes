@@ -5,14 +5,48 @@ body > header, body > section:last-of-type {
     background-position: center;
 }
 
+/* Colore personalizzato per il bottone Carica */
+.btn-upload {
+    color: #BB2E29;
+}
+
+/* Opzionale: se vuoi che cambi colore anche l'icona dentro */
+.btn-upload i {
+    color: #BB2E29;
+}
+
+.btn-upload:hover {
+    color: #BB2E29; /* Metti lo STESSO colore di prima (o uno leggermente più scuro per effetto) */
+}
+
+section i {
+    color: #BB2E29;
+}
+
+a > h1 {
+    color: #BB2E29;
+}
+
+a > i { /*icona persona*/
+    color: #BB2E29;
+}
+
+h3 {
+    color: #BB2E29;
+}
+
 h1, button {
     font-family: 'Merriweather Sans', sans-serif;
 }
 
-h2, h3, h4 {
+h2, h3, h5 {
     font-family: 'Merriweather';
 }
 
 p, a {
     font-family: 'Source Sans 3';
+}
+
+footer {
+    color: #BB2E29;
 }
