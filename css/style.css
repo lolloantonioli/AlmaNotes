@@ -1,6 +1,6 @@
 body > div:first-of-type, body > section:last-of-type {
     background-image: url(../img/sfondo.jpg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
