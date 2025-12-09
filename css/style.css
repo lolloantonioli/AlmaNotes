@@ -1,22 +1,20 @@
-body > header, body > section:last-of-type {
+body > div:first-of-type, body > section:last-of-type {
     background-image: url(../img/sfondo.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-/* Colore personalizzato per il bottone Carica */
 .btn-upload {
     color: #BB2E29;
 }
 
-/* Opzionale: se vuoi che cambi colore anche l'icona dentro */
 .btn-upload i {
     color: #BB2E29;
 }
 
 .btn-upload:hover {
-    color: #BB2E29; /* Metti lo STESSO colore di prima (o uno leggermente più scuro per effetto) */
+    color: #BB2E29;
 }
 
 section i {

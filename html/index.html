@@ -10,65 +10,64 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-        <div class="container-fluid">
-            
-            <button class="navbar-toggler border-0 d-lg-none order-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand fw-bold fs-3 mx-auto ms-lg-0 order-1 d-flex align-items-center gap-2" href="index.html">
-                <img src="../img/logo.png" alt="Logo" width="55" height="55"></img><h1>AlmaNotes</h1>
-            </a>
-
-            <div class="d-flex align-items-center order-2 order-lg-3">
-                <a href="#" >
-                    <i class="bi bi-person"></i>
-                </a>
-            </div>
-
-            <div class="offcanvas offcanvas-start order-lg-2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+            <div class="container-fluid">
                 
-                <div class="offcanvas-header">
-                    <h4 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Menu</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button class="navbar-toggler border-0 d-lg-none order-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <a class="navbar-brand fw-bold fs-3 mx-auto ms-lg-0 order-1 d-flex align-items-center gap-2" href="index.html">
+                    <img src="../img/logo.png" alt="Logo" width="55" height="55"></img><h1>AlmaNotes</h1>
+                </a>
+    
+                <div class="d-flex align-items-center order-2 order-lg-3">
+                    <a href="#" >
+                        <i class="bi bi-person"></i>
+                    </a>
                 </div>
-
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
-                        <li class="nav-item"><a class="nav-link text-danger fw-semibold" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Cerca</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Carica</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Contatti</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">About</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </nav>
-
-    <header class="text-white py-5 position-relative overflow-hidden">
-        <div class="container py-5 text-center position-relative z-1">
-            <h1 class="display-5 fw-bold mb-3">Gli appunti giusti per ogni esame</h1>
-            <p class="lead mb-4 fw-light opacity-75 mx-auto">
-                Trova e condividi appunti specifici per ogni insegnamento e professore dell'UniBo
-            </p>
-            
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
-                    <div class="input-group input-group-lg bg-white rounded-pill p-1 shadow">
-                        <span class="input-group-text border-0 bg-transparent ps-3 text-muted">
-                            <i class="bi bi-search"></i>
-                        </span>
-                        <input type="text" class="form-control border-0 bg-transparent shadow-none" placeholder="Cerca per esame, professore o argomento">
+    
+                <div class="offcanvas offcanvas-start order-lg-2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    
+                    <div class="offcanvas-header">
+                        <h4 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Menu</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
+                            <li class="nav-item"><a class="nav-link text-danger fw-semibold" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Cerca</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Carica</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">Contatti</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger text-secondary" href="#">About</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
+    
 
+    <div class="text-white container-fluid py-5 text-center position-relative overflow-hidden z-1">
+        <h1 class="display-5 fw-bold mb-3">Gli appunti giusti per ogni esame</h1>
+        <p class="lead mb-4 fw-light mx-auto">
+            Trova e condividi appunti specifici per ogni insegnamento e professore dell'UniBo
+        </p>
+        
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="input-group input-group-lg bg-white rounded-pill p-1 shadow">
+                    <span class="input-group-text border-0 bg-transparent ps-3 text-muted">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control border-0 bg-transparent shadow-none" placeholder="Cerca per esame, professore o argomento">
+                </div>
+            </div>
+        </div>
+    </div>
+<!--METTERE PIù RISULTATI PERCHè SE NO SEMBRA AUSTRIA-->
     <main class="container py-5">
         <div class="row g-5">
             
