@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlmaNotes - Profilo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* Classe personalizzata per forzare il font Serif (Merriweather) come nell'immagine */
+        .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Classe per il testo dei dati (Source Sans) */
+        .font-sans {
+            font-family: 'Source Sans 3', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+            <div class="container-fluid">
+                
+                <button class="navbar-toggler border-0 d-lg-none order-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <a class="navbar-brand fw-bold fs-3 mx-auto ms-lg-0 order-1 d-flex align-items-center gap-2" href="index.html">
+                    <img src="../img/logo.png" alt="Logo" width="55" height="55"><h1>AlmaNotes</h1>
+                </a>
+    
+                <div class="d-flex align-items-center order-2 order-lg-3">
+                    <a href="#" >
+                        <i class="bi bi-person text-dark fs-4"></i>
+                    </a>
+                </div>
+    
+                <div class="offcanvas offcanvas-start order-lg-2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    
+                    <div class="offcanvas-header">
+                        <h4 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Menu</h4>
+                        <button type="button" class="btn border-0 text-danger p-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="bi bi-x-lg fs-3"></i>
+                        </button>
+                    </div>
+    
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
+                            <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#">Cerca</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#">Carica</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#">Contatti</a></li>
+                            <li class="nav-item"><a class="nav-link text-secondary" href="#">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+
+    <main class="container py-5">
+        <div class="row g-5">
+            
+            <div class="col-12 col-lg-8 mx-auto"> 
+                
+                <div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+                    <i class="bi bi-person text-danger display-4"></i><h3>Il tuo profilo</h3>
+
+                </div>
+                
+                <div class="card border border-danger border-opacity-25 rounded-4 overflow-hidden">
+                    <div class="list-group list-group-flush">
+                        
+                        <div class="list-group-item p-4">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 me-4">
+                                    <i class="bi bi-at display-6 text-dark"></i>
+                                </div>
+                                <div class="flex-grow-1 text-center">
+                                    <h5 class="font-serif fw-bold mb-1 text-dark">Username</h5>
+                                    <p class="font-sans text-secondary mb-0 text-break">mariangiogniangiongiangiongiangiongiangiongiangiola</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item p-4">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 me-4">
+                                    <i class="bi bi-envelope display-6 text-dark"></i>
+                                </div>
+                                <div class="flex-grow-1 text-center">
+                                    <h5 class="font-serif fw-bold mb-1 text-dark">E-mail</h5>
+                                    <p class="font-sans text-secondary mb-0 text-break">mariangiogniangiongiangiongiangiongiangiongiangiola@studio.unibo.it</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item p-4">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 me-4">
+                                    <i class="bi bi-lock display-6 text-dark"></i>
+                                </div>
+                                <div class="flex-grow-1 text-center ps-5"> <h5 class="font-serif fw-bold mb-1 text-dark">Password</h5>
+                                    <p class="font-sans text-secondary mb-0 fw-bold fs-5">...................................................</p>
+                                </div>
+                                <div class="flex-shrink-0 ms-3">
+                                    <i class="bi bi-eye fs-4 text-dark cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            
+            <div class="col-12 col-lg-6">
+                <div class="d-flex align-items-center mb-4 gap-3">
+                    <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-upload"></i> I file che hai scaricato
+                    </h3>
+                    <a href="#" class="btn btn-danger fw-bold px-3 shadow-sm rounded-3">Vedi</a>
+                </div>
+                <div class="list-group shadow">
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 1000 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 500 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 200 download</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="d-flex align-items-center mb-4 gap-3">
+                    <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-download"></i> I file che hai caricato
+                    </h3>
+                    <a href="#" class="btn btn-danger fw-bold px-3 shadow-sm rounded-3">Vedi</a>
+                </div>
+                <div class="list-group shadow">
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted">8 ore fa</span>
+                      </div>
+                      <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-person"></i> cippalippa</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted">8 ore fa</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-person"></i> giovanni</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted">8 ore fa</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-person"></i> bob</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
+                    <i class="bi bi-graph-up-arrow"></i>I più popolari
+                </h3>
+                <div class="list-group shadow">
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 1000 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 500 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 200 download</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
+                    <i class="bi bi-star"></i> I fan Favourites
+                </h3>
+                <div class="list-group shadow">
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 1000 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 500 download</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                      </div>
+                      <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
+                      <p class="small text-muted mb-0"><i class="bi bi-download"></i> 200 download</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="text-white py-5 position-relative overflow-hidden text-center">
+        <div class="container position-relative z-1 py-4">
+            <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>
+            <button class="btn btn-light btn-upload fw-bold px-4 py-2 rounded-3 shadow">
+                <i class="bi bi-upload me-2"></i>Carica qui
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-light py-4 border-top">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                
+                <div class="text-secondary small d-flex align-items-center gap-2">
+                    <i class="bi bi-c-circle"></i> 2025 - AlmaNotes - Lorenzo Antonioli, Luca Varale Rolla
+                </div>
+
+                <div class="fs-3">
+                      <img src="../img/logo.png" alt="Logo" width="55" height="55">
+                </div>
+
+                <div class="d-flex gap-4 small opacity-50">
+                    <a href="#" class="text-decoration-none text-reset">Home</a>
+                    <a href="#" class="text-decoration-none text-reset">Home</a>
+                    <a href="#" class="text-decoration-none text-reset">Home</a>
+                    <a href="#" class="text-decoration-none text-reset">Home</a>
+                    <a href="#" class="text-decoration-none text-reset">Home</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
