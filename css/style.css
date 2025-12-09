@@ -35,7 +35,11 @@ a {
     color: #BB2E29;
 }
 
-h3, h4 {
+div > i {
+    color: #BB2E29;
+}
+
+h3, h4, h5 {
     color: #BB2E29;
 }
 
