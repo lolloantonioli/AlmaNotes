@@ -31,7 +31,11 @@ a > i { /*icona persona*/
     color: #BB2E29;
 }
 
-h3 {
+a {
+    color: #BB2E29;
+}
+
+h3, h4 {
     color: #BB2E29;
 }
 
@@ -39,7 +43,7 @@ h1, button {
     font-family: 'Merriweather Sans', sans-serif;
 }
 
-h2, h3, h5 {
+h2, h3, h4, h5 {
     font-family: 'Merriweather';
 }
 
