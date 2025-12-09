@@ -4,3 +4,7 @@ body > header, body > section:last-of-type {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+body > nav > a > h1, body > button {
+    font-family: 'Merriweather Sans', sans-serif;
+}
