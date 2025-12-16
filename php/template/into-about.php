@@ -49,7 +49,7 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-6">
+            <div class="col-12 col-lg-6 ">
                 <h2 class="display-5 fw-bold text-danger mb-3">La Nostra Missione</h2>
                 <p class="lead fs-5">
                     Crediamo che la condivisione del sapere renda l’università più inclusiva e meno stressante.
