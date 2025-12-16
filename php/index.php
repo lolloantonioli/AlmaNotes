@@ -3,7 +3,7 @@ require_once 'bootstrap.php';
 
 //Base template
 $templateParams["titolo"] = "AlmaNotes - Home";
-$templateParams["nome"] = "index.php";
+$templateParams["nome"] = "lista-contatti.php";
 
-require 'base.php'
+require 'template/base.php'
 ?>

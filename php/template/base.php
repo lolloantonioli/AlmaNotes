@@ -47,11 +47,27 @@
             </div>
         </nav>
     </header>
-    <?php
-    if(isset($templateParams["nome"])){
-        require($templateParams["nome"]);
-    }
+    <main>
+        <?php
+        if(isset($templateParams["nome"])){
+            require($templateParams["nome"]);
+        }
+        ?>
+
+    </main>
+    <?php 
+    // Controlla se il file nella barra degli indirizzi è 'index.php'
+    if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' || basename($_SERVER['PHP_SELF']) !== 'carica.php'): 
     ?>
+        <section class="text-white py-5 text-center">
+            <div class="container z-1 py-4">
+                <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>
+                <button class="btn btn-light btn-upload fw-bold px-4 py-2 rounded-3 shadow">
+                    <i class="bi bi-upload me-2"></i>Carica qui
+                </button>
+            </div>
+        </section>
+    <?php endif; ?>
     
     <footer class="bg-light py-5 border-top">
         <div class="container">
