@@ -18,7 +18,7 @@
                 </button>
     
                 <a class="navbar-brand fw-bold fs-3 mx-auto order-1 d-flex align-items-center gap-2" href="index.html">
-                    <img src="img/logo.png" alt="Logo" width="55" height="55"></img><h1>AlmaNotes</h1>
+                    <img src="img/logo.png" alt="Logo" width="55" height="55"/><h1>AlmaNotes</h1>
                 </a>
     
                 <div class="d-flex align-items-center order-2 order-lg-3">
@@ -56,7 +56,7 @@
 
     </main>
     <?php 
-    // Controlla se il file nella barra degli indirizzi è 'index.php'
+    // Controlla se il file nella barra degli indirizzi richiede anche il carica qui
     if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' || basename($_SERVER['PHP_SELF']) !== 'carica.php'): 
     ?>
         <section class="text-white py-5 text-center">
