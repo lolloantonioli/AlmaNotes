@@ -18,7 +18,7 @@
                 </button>
     
                 <a class="navbar-brand fw-bold fs-3 mx-auto order-1 d-flex align-items-center gap-2" href="index.html">
-                    <img src="../img/logo.png" alt="Logo" width="55" height="55"></img><h1>AlmaNotes</h1>
+                    <img src="img/logo.png" alt="Logo" width="55" height="55"></img><h1>AlmaNotes</h1>
                 </a>
     
                 <div class="d-flex align-items-center order-2 order-lg-3">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="fs-3">
-                     <img src="../img/logo.png" alt="Logo" width="55" height="55"></img>
+                     <img src="img/logo.png" alt="Logo" width="55" height="55"></img>
                 </div>
 
                 <div class="d-flex gap-4 small opacity-50">
