@@ -36,11 +36,11 @@
     
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
-                            <li class="nav-item"><a <?php isActive("index.php");?> class="nav-link text-danger fw-semibold" href="index.php">Home</a></li><li class="nav-item"><a <?php !isActive("index.php");?> class="nav-link text-secondary" href="index.php">Home</a></li>
-                            <li class="nav-item"><a <?php !isActive("cerca.php");?> class="nav-link text-danger text-secondary" href="cerca.php">Cerca</a></li><li class="nav-item"><a <?php isActive("cerca.php");?> class="nav-link text-danger fw-bold" href="cerca.php">Cerca</a></li>
-                            <li class="nav-item"><a <?php isActive("carica.php");?> class="nav-link text-danger fw-bold" href="carica.php">Carica</a></li><li class="nav-item"><a <?php !isActive("carica.php");?> class="nav-link text-danger text-secondary" href="carica.php">Carica</a></li>
-                            <li class="nav-item"><a <?php !isActive("carica.php");?>  class="nav-link text-danger text-secondary" href="contatti.php">Contatti</a></li><li class="nav-item"><a <?php isActive("carica.php");?>  class="nav-link text-danger fw-bold" href="contatti.php">Contatti</a></li>
-                            <li class="nav-item"><a <?php !isActive("about.php");?> class="nav-link text-danger text-secondary" href="about.php">About</a></li><li class="nav-item"><a <?php isActive("about.php");?> class="nav-link text-danger fw-bold" href="about.php">About</a></li>
+                            <li class="nav-item"><a <?php isActive("index.php");?> class="nav-link text-danger" href="index.php">Home</a></li>
+                            <li class="nav-item"><a <?php isActive("cerca.php");?> class="nav-link text-danger" href="cerca.php">Cerca</a></li>
+                            <li class="nav-item"><a <?php isActive("carica.php");?> class="nav-link text-danger" href="carica.php">Carica</a></li>
+                            <li class="nav-item"><a <?php isActive("contatti.php");?> class="nav-link text-danger" href="contatti.php">Contatti</a></li>
+                            <li class="nav-item"><a <?php isActive("about.php");?> class="nav-link text-danger" href="about.php">About</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="fs-3">
-                     <img src="img/logo.png" alt="Logo" width="55" height="55"></img>
+                     <img src="img/logo.png" alt="Logo" width="55" height="55"/>
                 </div>
 
                 <div class="d-flex gap-4 small opacity-50">
