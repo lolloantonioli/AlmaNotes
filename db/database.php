@@ -20,9 +20,10 @@ class Database {
                 COUNT(r.Stelle) AS numero_recensioni 
             FROM appunti a 
             JOIN recensione r ON a.Codice = r.Appunti 
-            JOIN professori p ON a.Professore = p.Codice 
-            JOIN INSEGNAMENTO i ON a.Insegnamento = i.Codice 
-            JOIN CORSO_DI_LAUREA c ON i.Corso_di_laurea = c.Codice
+            JOIN professore p ON a.Professore = p.Codice 
+            JOIN tenere t ON p.codice = t.professore
+            JOIN insegnamento i ON t.insegnamento = i.codice
+            JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice
             GROUP BY 
                 a.Codice, 
                 a.Nome, 
@@ -39,7 +40,7 @@ class Database {
     }
 
     public function getMostRecentsNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, p.Nome AS Professore, a.Data, a.Utente FROM appunti a JOIN professori p ON a.Professore = p.Codice ORDER BY a.Data DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Nome, p.Nome AS Professore, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice ORDER BY a.Data DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();

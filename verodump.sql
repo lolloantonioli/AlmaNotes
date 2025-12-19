@@ -35,7 +35,7 @@ CREATE TABLE `appunti` (
   KEY `REF_APPUN_UTENT_FK` (`Utente`),
   CONSTRAINT `REF_APPUN_PROFE_FK` FOREIGN KEY (`Professore`) REFERENCES `professore` (`Codice`),
   CONSTRAINT `REF_APPUN_UTENT_FK` FOREIGN KEY (`Utente`) REFERENCES `utente` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,7 +238,7 @@ CREATE TABLE `recensione` (
   KEY `REF_Recen_APPUN_FK` (`Appunti`),
   CONSTRAINT `ID_Recen_UTENT_FK` FOREIGN KEY (`Utente`) REFERENCES `utente` (`Username`),
   CONSTRAINT `REF_Recen_APPUN_FK` FOREIGN KEY (`Appunti`) REFERENCES `appunti` (`Codice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,7 +264,7 @@ CREATE TABLE `scarica` (
   KEY `REF_Scari_APPUN_FK` (`Appunti`),
   CONSTRAINT `REF_Scari_APPUN_FK` FOREIGN KEY (`Appunti`) REFERENCES `appunti` (`Codice`),
   CONSTRAINT `REF_Scari_UTENT` FOREIGN KEY (`Utente`) REFERENCES `utente` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +312,7 @@ CREATE TABLE `utente` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   PRIMARY KEY (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
