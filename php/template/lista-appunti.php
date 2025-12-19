@@ -23,9 +23,9 @@
                 <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
                     <i class="bi bi-graph-up-arrow"></i> Più scaricati
                 </h3>
-                <?php foreach ($templateparams["topappunti"] as $appunto): ?>
                 <div class="list-group shadow">
                     
+                    <?php foreach ($templateparams["topappunti"] as $appunto): ?>
                     <a href="#" class="list-group-item list-group-item-action border border-danger">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -34,18 +34,18 @@
                       <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["Corso_Laurea"]; ?></p>
                       <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                     </a>
+                    <?php endforeach; ?>
                     
                 </div>
-                <?php endforeach; ?>
             </div>
 
             <div class="col-12 col-lg-6">
                 <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
                     <i class="bi bi-clock"></i> Ultimi caricati
                 </h3>
-                <?php foreach ($templateparams["lastappunti"] as $appunto): ?>
                 <div class="list-group shadow">
                     
+                    <?php foreach ($templateparams["lastappunti"] as $appunto): ?>
                     <a href="#" class="list-group-item list-group-item-action border border-danger">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -54,9 +54,9 @@
                       <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["Corso_Laurea"]; ?></p>
                       <p class="small text-muted mb-0"><i class="bi bi-person"></i> <?php echo $appunto["Utente"]; ?></p>
                     </a>
+                    <?php endforeach; ?>
                     
                 </div>
-                <?php endforeach; ?>
             </div>
 
         </div>
