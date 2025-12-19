@@ -11,7 +11,26 @@ class Database {
     }
 
     public function getTopNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, a.Download, p.Nome AS Professore, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professori p ON a.Professore = p.Codice GROUP BY a.Codice, a.Nome, p.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT 
+                a.Nome, 
+                a.Download, 
+                p.Nome AS Professore, 
+                c.Nome AS Corso_Laurea, 
+                AVG(r.Stelle) AS media_recensioni, 
+                COUNT(r.Stelle) AS numero_recensioni 
+            FROM appunti a 
+            JOIN recensione r ON a.Codice = r.Appunti 
+            JOIN professori p ON a.Professore = p.Codice 
+            JOIN INSEGNAMENTO i ON a.Insegnamento = i.Codice 
+            JOIN CORSO_DI_LAUREA c ON i.Corso_di_laurea = c.Codice
+            GROUP BY 
+                a.Codice, 
+                a.Nome, 
+                p.Nome, 
+                c.Nome 
+            HAVING numero_recensioni >= 3 
+            ORDER BY media_recensioni DESC 
+            LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
