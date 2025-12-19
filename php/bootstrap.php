@@ -2,6 +2,6 @@
 session_start();
 define("UPLOAD_DIR", "./upload/");
 require_once("utils/functions.php");
-require_once("db/database.php");
-$dbh = new Database("AlmaNotes", "root", "GiorgioGiorgio04", "almanotes", "3306");
+require_once("../db/database.php");
+$dbh = new Database("localhost", "root", "", "almanotes", "3306");
 ?>
