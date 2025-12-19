@@ -25,7 +25,7 @@
                 </h3>
                 <div class="list-group shadow">
                     
-                    <?php foreach ($templateparams["topappunti"] as $appunto): ?>
+                    <?php foreach ($templateParams["topappunti"] as $appunto): ?>
                     <a href="#" class="list-group-item list-group-item-action border border-danger">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -45,7 +45,7 @@
                 </h3>
                 <div class="list-group shadow">
                     
-                    <?php foreach ($templateparams["lastappunti"] as $appunto): ?>
+                    <?php foreach ($templateParams["lastappunti"] as $appunto): ?>
                     <a href="#" class="list-group-item list-group-item-action border border-danger">
                       <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
