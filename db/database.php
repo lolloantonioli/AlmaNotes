@@ -29,15 +29,10 @@ class Database {
     }
 
     public function insertNote($nome, $professore, $insegnamento, $file) {
-        $this->checkProfessoreInsegnamento($professore, $insegnamento);
         $utente = $_SESSION['username'];
-        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, Percorso, Data, Utente) VALUES (?, ?, ?, CURDATE(), ?)");
+        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, File, Data, Utente, Download) VALUES (?, ?, ?, CURDATE(), ?, 0)");
         $stmt->bind_param("ssss", $nome, $professore, $file, $utente);
         $stmt->execute();
-    }
-
-    private function checkProfessoreInsegnamento($professore, $insegnamento) {
-
     }
 
     /**

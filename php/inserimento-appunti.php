@@ -1,43 +1,35 @@
 <?php
-require_once 'bootstrap.php'; // Assicura che $dbh e $_SESSION siano disponibili
+require_once 'bootstrap.php'; 
 
-// 1. Controllo Login
 if (empty($_SESSION['username'])) {
     header("Location: login.php");
     exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
 
-    // 2. Recupero input utente
-    $nomeAppunto = $_POST['nome'];
-    $idProfessore = $_POST['professore']; 
-    $idInsegnamento = $_POST['insegnamento'];
+    // 1. Recupero input con TRIM (Sicurezza contro gli spazi invisibili)
+    $nomeAppunto = trim($_POST['nome']);
+    $idProfessore = trim($_POST['professore']); 
+    $idInsegnamento = trim($_POST['insegnamento']); // Usato solo per controllo
     $utente = $_SESSION['username'];
 
-    // 3. Controllo e Upload del File
+    // 2. Controllo File
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
         
         $fileTmpPath = $_FILES['file']['tmp_name'];
         $fileName = $_FILES['file']['name'];
-        $fileSize = $_FILES['file']['size'];
         
-        // Verifica Sicurezza: MIME Type reale
         $finfo = new finfo(FILEINFO_MIME_TYPE);
         $mimeType = $finfo->file($fileTmpPath);
 
-        // Estensioni permesse
-        $allowedMimeTypes = ['application/pdf'];
-        
-        if (in_array($mimeType, $allowedMimeTypes)) {
+        if ($mimeType === 'application/pdf') {
             
-            // Genera nome unico: es. "65a4b2_appunti-analisi.pdf"
-            // Pulisce il nome originale da caratteri strani
+            // Genera nome unico pulito
             $cleanFileName = preg_replace('/[^A-Za-z0-9_\-]/', '_', pathinfo($fileName, PATHINFO_FILENAME));
             $newFileName = uniqid() . "_" . $cleanFileName . ".pdf";
 
-            // Cartella di destinazione (Assicurati che esista e abbia i permessi!)
+            // Cartella uploads
             $uploadDir = './uploads/'; 
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
@@ -45,19 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $destPath = $uploadDir . $newFileName;
 
-            // Sposta il file
             if (move_uploaded_file($fileTmpPath, $destPath)) {
                 
-                // 4. Inserimento nel DB (Passiamo il PERCORSO, non il file)
-                // $newFileName è la stringa che salveremo nel DB
+                // 3. CHIAMATA AL DB: Passiamo 5 parametri
+                // Nota: $newFileName è una stringa (il percorso), non il file binario
                 $result = $dbh->insertNote($nomeAppunto, $idProfessore, $idInsegnamento, $newFileName, $utente);
 
                 if ($result) {
-                    // Successo
                     echo "<script>alert('File caricato con successo!'); window.location.href = 'index.php';</script>";
                 } else {
-                    // Errore DB (magari eliminiamo il file orfano)
-                    unlink($destPath);
+                    // Se fallisce il DB, cancelliamo il file caricato per non occupare spazio inutile
+                    if (file_exists($destPath)) unlink($destPath);
                     echo "<script>alert('Errore nel database. Riprova.'); window.history.back();</script>";
                 }
 
@@ -70,9 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
     } else {
-        echo "<script>alert('Errore nell\'upload o nessun file selezionato.'); window.history.back();</script>";
+        echo "<script>alert('Errore: Seleziona un file PDF.'); window.history.back();</script>";
     }
 } else {
-    header("Location: index.php"); // Se provano ad aprire la pagina direttamente
+    header("Location: index.php");
 }
 ?>
