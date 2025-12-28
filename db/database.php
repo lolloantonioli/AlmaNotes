@@ -10,6 +10,15 @@ class Database {
         }
     }
 
+    public function checkLogin($username, $password){        
+        $stmt = $this->db->prepare("SELECT Username, Email FROM utente WHERE Username = ? AND Password = ?");
+        $stmt->bind_param('ss', $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getTopNotes($n) {
         $stmt = $this->db->prepare("SELECT a.Nome, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
         $stmt->bind_param('i', $n);
@@ -32,7 +41,22 @@ class Database {
         $utente = $_SESSION['username'];
         $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, File, Data, Utente, Download) VALUES (?, ?, ?, CURDATE(), ?, 0)");
         $stmt->bind_param("ssss", $nome, $professore, $file, $utente);
+        $executed = $stmt->execute();
+        if (!$executed) {
+            return false;
+        }
+        return ($stmt->affected_rows > 0);
+    }
+
+    public function insertUser($username, $email, $password) {
+        $stmt = $this->db->prepare("INSERT INTO utente (Username, Email, Password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $password);
         $stmt->execute();
+        $executed = $stmt->execute();
+        if (!$executed) {
+            return false;
+        }
+        return ($stmt->affected_rows > 0);
     }
 
     /**
