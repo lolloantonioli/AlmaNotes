@@ -57,7 +57,7 @@
     </main>
     <?php 
     // Controlla se il file nella barra degli indirizzi richiede anche il carica qui
-    if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' || basename($_SERVER['PHP_SELF']) !== 'carica.php'): 
+    if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' && basename($_SERVER['PHP_SELF']) !== 'carica.php'): 
     ?>
         <section class="text-white py-5 text-center">
             <div class="container z-1 py-4">
