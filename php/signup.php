@@ -5,13 +5,16 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["passwor
     if ($signup_result == true) {
         //registrazione avvenuta con successo
         $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-        registerLoggedUser($login_result[0]);
+        if (count($login_result) > 0) {
+            registerLoggedUser($login_result[0]);
+            header("Location: index.php");
+            exit;
+        } else {
+            $templateParams["erroresignup"] = "Registrazione riuscita ma errore nel login automatico.";
+        }
     } else {
         //registrazione fallita
         $templateParams["erroresignup"] = "Errore! Controllare i dati inseriti";
     }
-}
-if (isUserLoggedIn()) {
-    $templateParams["nome"] = "index.php";
 }
 ?>

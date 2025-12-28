@@ -51,7 +51,6 @@ class Database {
     public function insertUser($username, $email, $password) {
         $stmt = $this->db->prepare("INSERT INTO utente (Username, Email, Password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $password);
-        $stmt->execute();
         $executed = $stmt->execute();
         if (!$executed) {
             return false;
