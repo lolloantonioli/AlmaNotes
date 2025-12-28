@@ -30,7 +30,35 @@ class Database {
 
     public function insertNote($nome, $professore, $insegnamento, $file) {
         $this->checkProfessoreInsegnamento($professore, $insegnamento);
-        $stmt = $this->db->prepare("")
+        $utente = $_SESSION['username'];
+        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, Percorso, Data, Utente) VALUES (?, ?, ?, CURDATE(), ?)");
+        $stmt->bind_param("ssss", $nome, $professore, $file, $utente);
+        $stmt->execute();
+    }
+
+    private function checkProfessoreInsegnamento($professore, $insegnamento) {
+
+    }
+
+    /**
+     * Recupera la lista combinata di Insegnamenti e Professori.
+     * Serve per la ricerca unificata nel modale.
+     */
+    public function getCorsiProfessori() {
+        // Selezioniamo ID e Nomi di entrambi unendo le tabelle
+        // t.ID non esiste, usiamo la coppia (Professore, Insegnamento)
+        $query = "SELECT 
+                    p.Codice AS CodiceProf, 
+                    p.Nome AS NomeProf, 
+                    i.Codice AS CodiceCorso, 
+                    i.Nome AS NomeCorso 
+                  FROM tenere t
+                  JOIN professore p ON t.Professore = p.Codice
+                  JOIN insegnamento i ON t.Insegnamento = i.Codice";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 }
 
