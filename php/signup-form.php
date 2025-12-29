@@ -11,6 +11,11 @@
 </head>
 
 <body class="bg-light d-flex flex-column justify-content-center align-items-center vh-100 overflow-x-hidden" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <?php if(isset($templateParams["erroresignup"])): ?>
+        <div class="alert alert-danger">
+            <?php echo $templateParams["erroresignup"]; ?>
+        </div>
+    <?php endif; ?>
     <form action="signup.php" method="POST">
         <div></div>
         <div class="bg-light bg-opacity-95 rounded-4 shadow-lg p-4 p-sm-5 mx-3" style="max-width: 450px; width: 100%;">
@@ -21,17 +26,17 @@
             </div>
     
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username"/>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off" required/>
                 <label for="username">Username</label>
             </div>
     
             <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"/>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="off" required/>
                 <label for="email">Email address</label>
             </div>
     
             <div class="form-floating mb-4">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" required/>
                 <label for="password">Password</label>
             </div>
     

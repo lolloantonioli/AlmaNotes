@@ -49,13 +49,14 @@ class Database {
     }
 
     public function insertUser($username, $email, $password) {
-        $stmt = $this->db->prepare("INSERT INTO utente (Username, Email, Password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $email, $password);
-        $executed = $stmt->execute();
-        if (!$executed) {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO utente (Username, Email, Password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $password);
+            $stmt->execute();
+            return true;
+        } catch (mysqli_sql_exception $e) {
             return false;
         }
-        return ($stmt->affected_rows > 0);
     }
 
     /**
@@ -65,16 +66,7 @@ class Database {
     public function getCorsiProfessori() {
         // Selezioniamo ID e Nomi di entrambi unendo le tabelle
         // t.ID non esiste, usiamo la coppia (Professore, Insegnamento)
-        $query = "SELECT 
-                    p.Codice AS CodiceProf, 
-                    p.Nome AS NomeProf, 
-                    i.Codice AS CodiceCorso, 
-                    i.Nome AS NomeCorso 
-                  FROM tenere t
-                  JOIN professore p ON t.Professore = p.Codice
-                  JOIN insegnamento i ON t.Insegnamento = i.Codice";
-
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, i.Codice AS CodiceCorso, i.Nome AS NomeCorso FROM tenere t JOIN professore p ON t.Professore = p.Codice JOIN insegnamento i ON t.Insegnamento = i.Codice");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

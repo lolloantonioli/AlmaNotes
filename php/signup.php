@@ -1,5 +1,9 @@
 <?php
 require_once 'bootstrap.php';
+if (isUserLoggedIn()) {
+    header("Location: index.php");
+    exit;
+}
 if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
     $signup_result = $dbh->insertUser($_POST["username"], $_POST["email"], $_POST["password"]);
     if ($signup_result == true) {
@@ -11,10 +15,15 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["passwor
             exit;
         } else {
             $templateParams["erroresignup"] = "Registrazione riuscita ma errore nel login automatico.";
+            require 'signup-form.php';
+            exit;
         }
     } else {
         //registrazione fallita
         $templateParams["erroresignup"] = "Errore! Controllare i dati inseriti";
+        require 'signup-form.php';
+        exit;
     }
 }
+require 'template/base.php';
 ?>
