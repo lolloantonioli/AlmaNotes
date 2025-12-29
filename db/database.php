@@ -20,7 +20,7 @@ class Database {
     }
 
     public function getTopNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Nome, a.NomeFile, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,7 +29,7 @@ class Database {
     }
 
     public function getMostRecentsNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Nome, a.NomeFile, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
