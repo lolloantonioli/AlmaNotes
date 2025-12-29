@@ -30,7 +30,7 @@
                    data-bs-toggle="modal" 
                    data-bs-target="#downloadModal"
                    data-file-name="<?php echo htmlspecialchars($appunto["Nome"]); ?>"
-                   data-file-url="../uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
+                   data-file-url="uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -55,7 +55,7 @@
                    data-bs-toggle="modal" 
                    data-bs-target="#downloadModal"
                    data-file-name="<?php echo htmlspecialchars($appunto["Nome"]); ?>"
-                   data-file-url="../uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
+                   data-file-url="uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
