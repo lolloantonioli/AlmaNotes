@@ -29,7 +29,7 @@ class Database {
     }
 
     public function getMostRecentsNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, p.Nome AS Professore, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice ORDER BY a.Data DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Nome, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -37,9 +37,8 @@ class Database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertNote($nome, $professore, $insegnamento, $file) {
-        $utente = $_SESSION['username'];
-        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, File, Data, Utente, Download) VALUES (?, ?, ?, CURDATE(), ?, 0)");
+    public function insertNote($nome, $professore, $insegnamento, $file, $utente) {
+        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, NomeFile, Data, Utente, Download) VALUES (?, ?, ?, CURDATE(), ?, 0)");
         $stmt->bind_param("ssss", $nome, $professore, $file, $utente);
         $executed = $stmt->execute();
         if (!$executed) {
@@ -66,7 +65,16 @@ class Database {
     public function getCorsiProfessori() {
         // Selezioniamo ID e Nomi di entrambi unendo le tabelle
         // t.ID non esiste, usiamo la coppia (Professore, Insegnamento)
-        $stmt = $this->db->prepare("SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, i.Codice AS CodiceCorso, i.Nome AS NomeCorso FROM tenere t JOIN professore p ON t.Professore = p.Codice JOIN insegnamento i ON t.Insegnamento = i.Codice");
+        $stmt = $this->db->prepare("SELECT 
+                    p.Codice AS CodiceProf, 
+                    p.Nome AS NomeProf, 
+                    i.Codice AS CodiceCorso, 
+                    i.Nome AS NomeCorso,
+                    c.Nome AS NomeCdl     
+                  FROM tenere t
+                  JOIN professore p ON t.Professore = p.Codice
+                  JOIN insegnamento i ON t.Insegnamento = i.Codice
+                  JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

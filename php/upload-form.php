@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" name="nome" id="floatingInput" placeholder="appunti" required/>
+                    <input type="text" class="form-control" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
@@ -64,7 +64,8 @@
                             // 2. DISPLAY: Creiamo le stringhe per l'utente
                             $nomeCorso = htmlspecialchars($riga['NomeCorso']);
                             $nomeProf = htmlspecialchars($riga['NomeProf']);
-                            $labelCompleta = $riga['NomeCorso'] . ' - ' . $riga['NomeProf'];
+                            $nomeCdl = htmlspecialchars($riga['NomeCdl']);
+                            $labelCompleta = $riga['NomeCorso'] . ' - ' . $riga['NomeProf'] . ' (' . $riga['NomeCdl'] . ')';
                         ?>
                         
                         <button type="button" class="list-group-item list-group-item-action btn-selezione" 
@@ -74,6 +75,7 @@
                             
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1 text-danger fw-bold"><?php echo $nomeCorso; ?></h6>
+                                <small class="text-muted"><?php echo $nomeCdl; ?></small>
                             </div>
                             <p class="mb-1 small">Prof. <?php echo $nomeProf; ?></p>
                             
