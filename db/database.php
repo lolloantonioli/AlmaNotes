@@ -20,7 +20,7 @@ class Database {
     }
 
     public function getTopNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, a.NomeFile, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,12 +29,19 @@ class Database {
     }
 
     public function getMostRecentsNotes($n) {
-        $stmt = $this->db->prepare("SELECT a.Nome, a.NomeFile, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNoteById($id) {
+        $stmt = $this->db->prepare("SELECT NomeFile FROM appunti WHERE Codice = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
     public function insertNote($nome, $professore, $insegnamento, $file, $utente) {
@@ -58,6 +65,19 @@ class Database {
         }
     }
 
+    private function updateDownloadCount($codiceAppunti) {
+        $stmt = $this->db->prepare("UPDATE appunti SET Download = Download + 1 WHERE Codice = ?");
+        $stmt->bind_param('i', $codiceAppunti);
+        $stmt->execute();
+    }
+
+    public function insertDownload($username, $codiceAppunti) {
+        $stmt = $this->db->prepare("INSERT INTO scarica (Utente, Appunti) VALUES (?, ?)");
+        $stmt->bind_param('si', $username, $codiceAppunti);
+        $result = $stmt->execute();
+        return $result ? $this->updateDownloadCount($codiceAppunti) : $result;
+    }
+
     public function getUserData($username) {
         $stmt = $this->db->prepare("SELECT Username, Email, Password FROM utente WHERE Username = ?");
         $stmt->bind_param('s', $username);
@@ -77,14 +97,13 @@ class Database {
         FROM 
             appunti A
             JOIN professore P ON A.Professore = P.Codice
-            -- Colleghiamo il prof al corso tramite la tabella 'tenere' e 'insegnamento'
             JOIN tenere T ON P.Codice = T.Professore
             JOIN insegnamento I ON T.Insegnamento = I.Codice
             JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice
             -- Left join per le recensioni (così prende anche appunti senza voti)
             LEFT JOIN recensione R ON A.Codice = R.Appunti
         WHERE 
-            A.Utente = ?  -- Qui andrà l'username dell'utente corrente
+            A.Utente = ?
         GROUP BY 
             A.Codice, A.Nome, P.Nome, C.Nome, A.Download
         ORDER BY 

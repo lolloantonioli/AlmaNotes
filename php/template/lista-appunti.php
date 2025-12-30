@@ -30,7 +30,7 @@
                    data-bs-toggle="modal" 
                    data-bs-target="#downloadModal"
                    data-file-name="<?php echo htmlspecialchars($appunto["Nome"]); ?>"
-                   data-file-url="uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
+                   data-file-url="download.php?id=<?php echo $appunto["Codice"]; ?>"
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -55,7 +55,7 @@
                    data-bs-toggle="modal" 
                    data-bs-target="#downloadModal"
                    data-file-name="<?php echo htmlspecialchars($appunto["Nome"]); ?>"
-                   data-file-url="uploads/<?php echo htmlspecialchars($appunto["NomeFile"]); ?>"
+                   data-file-url="download.php?id=<?php echo $appunto["Codice"]; ?>"
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
@@ -90,7 +90,7 @@
             
             <div class="modal-footer border-top-0 d-flex justify-content-center gap-2 pb-4">
                 <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Annulla</button>
-                <a href="#" id="confirmDownloadBtn" class="btn btn-danger rounded-pill px-4 fw-bold" download>
+                <a href="#" id="confirmDownloadBtn" class="btn btn-danger rounded-pill px-4 fw-bold">
                     Scarica
                 </a>
             </div>
