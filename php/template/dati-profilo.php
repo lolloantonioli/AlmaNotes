@@ -9,49 +9,55 @@
 
             
                 <div class="list-group list-group-flush card shadow border border-danger-subtle rounded">
-                    
-                    <div class="list-group-item p-4 border-bottom border-danger-subtle">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4 user-select-none">
-                                <i class="bi bi-at display-6 user-select-none"></i>
-                            </div>
-                            <div class="flex-grow-1 text-center">
-                                <h5 class="font-serif fw-bold mb-1">Username</h5>
-                                <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Username"]; ?></p>
-                            </div>
-                        </div>
-                    </div>
+    
+    <div class="list-group-item p-4 border-bottom border-danger-subtle">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+                <i class="bi bi-at display-6"></i>
+            </div>
+            
+            <div class="flex-grow-1 text-center px-2">
+                <h5 class="font-serif fw-bold mb-1">Username</h5>
+                <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Username"]; ?></p>
+            </div>
+            
+            <div style="width: 50px;"></div>
+        </div>
+    </div>
 
-                    <div class="list-group-item p-4 border-bottom border-danger-subtle">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4 user-select-none">
-                                <i class="bi bi-envelope display-6 user-select-none"></i>
-                            </div>
-                            <div class="flex-grow-1 text-center">
-                                <h5 class="font-serif fw-bold mb-1">E-mail</h5>
-                                <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Email"]; ?></p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="list-group-item p-4 border-bottom border-danger-subtle">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+                <i class="bi bi-envelope display-6"></i>
+            </div>
+            
+            <div class="flex-grow-1 text-center px-2">
+                <h5 class="font-serif fw-bold mb-1">E-mail</h5>
+                <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Email"]; ?></p>
+            </div>
 
-                    <div class="list-group-item p-4">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4 user-select-none">
-                                <i class="bi bi-key display-6 user-select-none"></i>
-                            </div>
-                            <div class="flex-grow-1 text-center ps-5"> 
-                                <h5 class="font-serif fw-bold mb-1">Password</h5>
+            <div style="width: 50px;"></div>
+        </div>
+    </div>
 
-                                <p id="password-text" class="font-sans text-secondary mb-0" data-password="<?php echo htmlspecialchars($templateParams["utente"]["Password"]); ?>">••••••••</p>
+    <div class="list-group-item p-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+                <i class="bi bi-key display-6"></i>
+            </div>
+            
+            <div class="flex-grow-1 text-center px-2"> 
+                <h5 class="font-serif fw-bold mb-1">Password</h5>
+                <p id="password-text" class="font-sans text-secondary mb-0" data-password="<?php echo htmlspecialchars($templateParams["utente"]["Password"]); ?>">••••••••</p>
+            </div>
+            
+            <div class="d-flex justify-content-end user-select-none" style="width: 50px;">
+                <i id="toggle-password-icon" class="bi bi-eye fs-4" style="cursor: pointer;" onclick="togglePassword()"></i>
+            </div>
+        </div>
+    </div>
 
-                            </div>
-                            <div class="flex-shrink-0 ms-3 user-select-none">
-                                <i id="toggle-password-icon" class="bi bi-eye fs-4 user-select-none" style="cursor: pointer;" onclick="togglePassword()"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+</div>
         </div>
         
         <div class="col-12 col-lg-6">
