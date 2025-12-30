@@ -7,10 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-8">
             <div class="input-group input-group-lg bg-white rounded-pill p-1 mb-5 mt-3 shadow">
-                <span class="input-group-text border-0 bg-transparent ps-3 text-muted">
+                <span class="input-group-text border-0 bg-transparent ps-3 text-muted user-select-none">
                     <i class="bi bi-search"></i>
                 </span>
-                <input type="text" class="form-control border-0 bg-transparent" placeholder="Cerca per esame, professore o argomento">
+                <input type="text" class="form-control border-0 bg-transparent shadow-none" placeholder="Cerca per esame, professore o argomento">
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         
         <div class="col-12 col-lg-6">
             <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
-                <i class="bi bi-graph-up-arrow"></i> Più scaricati
+                <i class="bi bi-graph-up-arrow user-select-none"></i> Più scaricati
             </h3>
             <div class="list-group shadow">
                 
@@ -46,7 +46,7 @@
 
         <div class="col-12 col-lg-6">
             <h3 class="fw-bold mb-4 d-flex align-items-center gap-2">
-                <i class="bi bi-clock"></i> Ultimi caricati
+                <i class="bi bi-clock user-select-none"></i> Ultimi caricati
             </h3>
             <div class="list-group shadow">
                 

@@ -13,17 +13,17 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
             <div class="container-fluid">
                 
-                <button class="navbar-toggler border-0 d-lg-none order-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <button class="navbar-toggler border-0 d-lg-none order-0 d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2 user-select-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
     
-                <a class="navbar-brand fw-bold fs-3 mx-auto order-1 d-flex align-items-center gap-2" href="index.html">
+                <a class="navbar-brand fw-bold fs-3 mx-auto order-1 d-flex align-items-center gap-2 user-select-none" href="index.php">
                     <img src="img/logo.png" alt="Logo" width="55" height="55"/><h1>AlmaNotes</h1>
                 </a>
     
-                <div class="d-flex align-items-center order-2 order-lg-3">
+                <div class="d-flex align-items-center order-2 order-lg-3 user-select-none">
                     <a href="profilo.php" >
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-person fs-3"></i>
                     </a>
                 </div>
     
@@ -36,11 +36,42 @@
     
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
-                            <li class="nav-item"><a <?php isActive("index.php");?> class="nav-link text-danger" href="index.php">Home</a></li>
-                            <li class="nav-item"><a <?php isActive("cerca.php");?> class="nav-link text-danger" href="cerca.php">Cerca</a></li>
-                            <li class="nav-item"><a <?php isActive("carica.php");?> class="nav-link text-danger" href="carica.php">Carica</a></li>
-                            <li class="nav-item"><a <?php isActive("contatti.php");?> class="nav-link text-danger" href="contatti.php">Contatti</a></li>
-                            <li class="nav-item"><a <?php isActive("about.php");?> class="nav-link text-danger" href="about.php">About</a></li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("index.php");?>" 
+                                href="index.php">
+                                <i class="bi bi-house-door me-2"></i>Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("cerca.php");?>" 
+                                href="cerca.php">
+                                <i class="bi bi-search me-2"></i>Cerca
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("carica.php");?>" 
+                                href="carica.php">
+                                <i class="bi bi-cloud-upload me-2"></i>Carica
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("contatti.php");?>" 
+                                href="contatti.php">
+                                <i class="bi bi-envelope me-2"></i>Contatti
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("about.php");?>" 
+                                href="about.php">
+                                <i class="bi bi-info-circle me-2"></i>About
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -62,9 +93,9 @@
         <section class="text-white py-5 text-center">
             <div class="container z-1 py-4">
                 <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>
-                <button class="btn btn-light btn-upload fw-bold px-4 py-2 rounded-3 shadow">
+                <a href="carica.php" class="btn btn-light btn-upload text-danger fw-bold px-4 py-2 rounded-3 shadow">
                     <i class="bi bi-upload me-2"></i>Carica qui
-                </button>
+                </a>
             </div>
         </section>
     <?php endif; ?>
@@ -93,4 +124,5 @@
         </div>
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>

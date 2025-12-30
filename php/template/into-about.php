@@ -1,6 +1,6 @@
     <div class="text-white container-fluid py-5 text-center position-relative overflow-hidden z-1" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center;">
         <h1 class="display-5 fw-bold mb-3">About AlmaNotes</h1>
-        <p class="lead mb-4 fw-light mx-auto">
+        <p class="lead mb-4 fw-light mx-auto fs-4">
             Almanotes nasce come una piattaforma pensata dagli studenti dell'UniBo per gli studenti dell'UniBo. Il nostro obiettivo è semplice: rendere lo studio più facile, collaborativo e accessibile, creando un luogo dove trovare appunti chiari, materiali utili e strumenti per organizzare meglio la vita universitaria.
             Ogni giorno centinaia di studenti affrontano esami, lezioni, progetti di gruppo e sessioni infinite. 
             Spesso però il materiale è sparso tra gruppi Telegram, Drive condivisi e chat impossibili da trovare.Almanotes mette ordine a tutto questo, offrendo un unico spazio dove condividere conoscenza e aiutarsi a vicenda.
@@ -15,7 +15,7 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-folder fs-1" style="color: white;"></i>
+                    <i class="bi bi-folder fs-1 user-select-none" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Condivisione degli appunti</h4>
                 <p class="text-secondary">
@@ -27,7 +27,7 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-upload fs-1" style="color: white;"></i>
+                    <i class="bi bi-upload fs-1 user-select-none" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Upload semplice e sicuro</h4>
                 <p class="text-secondary">
@@ -38,7 +38,7 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-people fs-1" style="color: white;"></i>
+                    <i class="bi bi-people fs-1 user-select-none" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Community UniBo</h4>
                 <p class="text-secondary">

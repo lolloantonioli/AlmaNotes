@@ -8,7 +8,7 @@
         <div class="w-100 px-3" style="max-width: 400px;">
             
             <div class="text-center mb-0">
-                <i class="bi bi-upload me-2"></i><h1 class="text-danger fw-bold">Carica</h1>
+                <i class="bi bi-upload me-2 user-select-none"></i><h1 class="text-danger fw-bold">Carica</h1>
             </div>
             
             <form action="inserimento-appunti.php" method="POST" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label class="form-label">Corso e Professore</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca">
+                        <input type="text" class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca">
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalRicerca">
                             <i class="bi bi-search"></i> Cerca
                         </button>
@@ -27,12 +27,12 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
+                    <input type="text" class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
                 <div class="mb-3">
-                    <input class="form-control" type="file" name="file" id="formFile" accept=".pdf" required>
+                    <input class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
                 <div class="d-grid">
