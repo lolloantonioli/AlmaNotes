@@ -58,23 +58,51 @@ class Database {
         }
     }
 
+    public function getUserData($username) {
+        $stmt = $this->db->prepare("SELECT Username, Email, Password FROM utente WHERE Username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc();
+    }
+
+    public function getPreviewDownloadedFiles($username) {
+        $stmt = $this->db->prepare("SELECT 
+            A.Nome,
+            P.Nome AS Professore,
+            C.Nome AS Corso_Laurea,
+            COALESCE(AVG(R.Stelle), 0) AS media_recensioni,
+            A.Download
+        FROM 
+            appunti A
+            JOIN professore P ON A.Professore = P.Codice
+            -- Colleghiamo il prof al corso tramite la tabella 'tenere' e 'insegnamento'
+            JOIN tenere T ON P.Codice = T.Professore
+            JOIN insegnamento I ON T.Insegnamento = I.Codice
+            JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice
+            -- Left join per le recensioni (così prende anche appunti senza voti)
+            LEFT JOIN recensione R ON A.Codice = R.Appunti
+        WHERE 
+            A.Utente = ?  -- Qui andrà l'username dell'utente corrente
+        GROUP BY 
+            A.Codice, A.Nome, P.Nome, C.Nome, A.Download
+        ORDER BY 
+            A.Nome DESC
+        LIMIT 3;");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /**
      * Recupera la lista combinata di Insegnamenti e Professori.
-     * Serve per la ricerca unificata nel modale.
+     * Serve per la ricerca nel modale.
      */
     public function getCorsiProfessori() {
-        // Selezioniamo ID e Nomi di entrambi unendo le tabelle
-        // t.ID non esiste, usiamo la coppia (Professore, Insegnamento)
-        $stmt = $this->db->prepare("SELECT 
-                    p.Codice AS CodiceProf, 
-                    p.Nome AS NomeProf, 
-                    i.Codice AS CodiceCorso, 
-                    i.Nome AS NomeCorso,
-                    c.Nome AS NomeCdl     
-                  FROM tenere t
-                  JOIN professore p ON t.Professore = p.Codice
-                  JOIN insegnamento i ON t.Insegnamento = i.Codice
-                  JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice");
+        $stmt = $this->db->prepare("SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, i.Codice AS CodiceCorso, i.Nome AS NomeCorso, c.Nome AS NomeCdl FROM tenere t JOIN professore p ON t.Professore = p.Codice JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
