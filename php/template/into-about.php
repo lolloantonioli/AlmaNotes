@@ -15,7 +15,7 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-folder fs-1"></i>
+                    <i class="bi bi-folder fs-1" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Condivisione degli appunti</h4>
                 <p class="text-secondary">
@@ -27,7 +27,7 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-upload fs-1"></i>
+                    <i class="bi bi-upload fs-1" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Upload semplice e sicuro</h4>
                 <p class="text-secondary">
@@ -38,12 +38,12 @@
 
             <div class="col-12 col-md-4">
                 <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
-                    <i class="bi bi-people fs-1"></i>
+                    <i class="bi bi-people fs-1" style="color: white;"></i>
                 </div>
                 <h4 class="text-danger fw-bold">Community UniBo</h4>
                 <p class="text-secondary">
                     Un luogo fatto su misura per chi studia a Bologna: niente caos, niente
-                    spam. Solo ciò che serve agli studenti, diviso per corsi reali dell’ateneo.
+                    spam. Solo ciò che serve agli studenti, diviso per corsi reali dell'ateneo.
                 </p>
             </div>
         </div>
@@ -52,9 +52,9 @@
             <div class="col-12 col-lg-6 ">
                 <h2 class="display-5 fw-bold text-danger mb-3">La Nostra Missione</h2>
                 <p class="lead fs-5">
-                    Crediamo che la condivisione del sapere renda l’università più inclusiva e meno stressante.
+                    Crediamo che la condivisione del sapere renda l'università più inclusiva e meno stressante.
                     Per questo vogliamo costruire una piattaforma moderna, intuitiva e completamente dedicata
-                    all’UniBo, dove lo studio diventa davvero collaborazione.
+                    all'UniBo, dove lo studio diventa davvero collaborazione.
                 </p>
             </div>
         </div>
