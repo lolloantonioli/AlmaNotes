@@ -12,7 +12,7 @@
                     
                     <div class="list-group-item p-4 border-bottom border-danger-subtle">
                         <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4">
+                            <div class="flex-shrink-0 me-4 user-select-none">
                                 <i class="bi bi-at display-6 user-select-none"></i>
                             </div>
                             <div class="flex-grow-1 text-center">
@@ -24,7 +24,7 @@
 
                     <div class="list-group-item p-4 border-bottom border-danger-subtle">
                         <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4">
+                            <div class="flex-shrink-0 me-4 user-select-none">
                                 <i class="bi bi-envelope display-6 user-select-none"></i>
                             </div>
                             <div class="flex-grow-1 text-center">
@@ -36,7 +36,7 @@
 
                     <div class="list-group-item p-4">
                         <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-4">
+                            <div class="flex-shrink-0 me-4 user-select-none">
                                 <i class="bi bi-key display-6 user-select-none"></i>
                             </div>
                             <div class="flex-grow-1 text-center ps-5"> 
@@ -45,7 +45,7 @@
                                 <p id="password-text" class="font-sans text-secondary mb-0" data-password="<?php echo htmlspecialchars($templateParams["utente"]["Password"]); ?>">••••••••</p>
 
                             </div>
-                            <div class="flex-shrink-0 ms-3">
+                            <div class="flex-shrink-0 ms-3 user-select-none">
                                 <i id="toggle-password-icon" class="bi bi-eye fs-4 user-select-none" style="cursor: pointer;" onclick="togglePassword()"></i>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                 <a href="#" class="list-group-item list-group-item-action border border-danger">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
-                        <span class="small text-muted"><i class="bi bi-star"></i> <?php echo $appunto["media_recensioni"]; ?>/5</span>
+                        <span class="small text-muted">Data download: <?php echo $appunto["Data_Download"]; ?></span>
                     </div>
                     <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["Corso_Laurea"]; ?></p>
                     <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
@@ -83,30 +83,16 @@
                 <a href="#" class="btn btn-danger fw-bold px-3 shadow-sm rounded-3">Vedi</a>
             </div>
             <div class="list-group shadow">
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted">8 ore fa</span>
-                    </div>
-                    <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-person"></i> cippalippa</p>
-                </a>
+                <?php foreach ($templateParams["previewuploadedfiles"] as $appunto): ?>
                 <a href="#" class="list-group-item list-group-item-action border border-danger">
                     <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted">8 ore fa</span>
+                        <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> <?php echo $appunto["media_recensioni"]; ?>/5</span>
                     </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-person"></i> giovanni</p>
+                    <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["Corso_Laurea"]; ?></p>
+                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted">8 ore fa</span>
-                    </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-person"></i> bob</p>
-                </a>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -115,30 +101,16 @@
                 <i class="bi bi-graph-up-arrow"></i>I più popolari
             </h3>
             <div class="list-group shadow">
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
-                    </div>
-                    <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 1000 download</p>
-                </a>
+                <?php foreach ($templateParams["topnotes"] as $appunto): ?>
                 <a href="#" class="list-group-item list-group-item-action border border-danger">
                     <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                        <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
+                        <span class="small text-muted"><?php echo $appunto["Data"]; ?></span>
                     </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 500 download</p>
+                    <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["CorsoDiLaurea"]; ?></p>
+                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
-                    </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 200 download</p>
-                </a>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -147,30 +119,16 @@
                 <i class="bi bi-star"></i> I fan Favourites
             </h3>
             <div class="list-group shadow">
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-bottom-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
-                    </div>
-                    <p class="small text-secondary mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 1000 download</p>
-                </a>
+                <?php foreach ($templateParams["favoritesnotes"] as $appunto): ?>
                 <a href="#" class="list-group-item list-group-item-action border border-danger">
                     <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
+                        <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
+                        <span class="small text-muted"><i class="bi bi-star"></i> <?php echo $appunto["MediaRecensioni"]; ?>/5</span>
                     </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 500 download</p>
+                    <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["CorsoDiLaurea"]; ?></p>
+                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action border border-danger border-top-0">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 fw-bold">Appunti Analisi 1</h5>
-                    <span class="small text-muted"><i class="bi bi-star"></i> 5/5</span>
-                    </div>
-                    <p class="mb-1">Prof. Cinti - Ingegneria e Scienze Informatiche</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-download"></i> 200 download</p>
-                </a>
+                <?php endforeach; ?>
             </div>
         </div>
 
