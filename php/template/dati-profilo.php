@@ -65,7 +65,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-download"></i> I file che hai scaricato
                 </h3>
-                <a href="#" class="btn btn-danger fw-bold px-3 shadow-sm rounded-3">Vedi</a>
+                <a href="#" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewdownloadedfiles"] as $appunto): ?>
@@ -86,7 +86,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-upload"></i> I file che hai caricato
                 </h3>
-                <a href="#" class="btn btn-danger fw-bold px-3 shadow-sm rounded-3">Vedi</a>
+                <a href="#" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewuploadedfiles"] as $appunto): ?>
@@ -137,9 +137,35 @@
                 <?php endforeach; ?>
             </div>
         </div>
-
+        <div class="col-12 text-center mt-5 mb-3">
+            <button type="button" class="btn btn-outline-danger btn-lg px-5 rounded-pill fw-bold shadow" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                <i class="bi bi-box-arrow-right me-2"></i>Esci dal Profilo
+            </button>
+        </div>
     </div>
 </main>
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow border-0">
+            
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold text-danger">Conferma Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body text-center py-4">
+                <i class="bi bi-exclamation-circle text-warning display-4 d-block mb-3"></i>
+                <p class="mb-0 fs-5">Sei sicuro di voler uscire dal tuo account?</p>
+            </div>
+            
+            <div class="modal-footer border-top-0 d-flex justify-content-center gap-3 pb-4">
+                <button type="button" class="btn btn-light rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Annulla</button>
+                <a href="logout.php" class="btn btn-danger rounded-pill px-4 fw-bold">Esci</a>
+            </div>
+
+        </div>
+    </div>
+</div>
 <script>
 function togglePassword() {
     // 1. Prendi i riferimenti agli elementi
