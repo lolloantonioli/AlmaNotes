@@ -134,6 +134,74 @@ class Database {
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    // --- NUOVE FUNZIONI PER LA RICERCA ---
+
+    /**
+     * Cerca appunti in base al testo e ai filtri opzionali
+     */
+    public function searchNotes($text, $prof = null, $subject = null) {
+        // Query di base
+        $sql = "SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Data, a.Utente, 
+                       p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, 
+                       COALESCE(AVG(r.Stelle), 0) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni
+                FROM appunti a
+                JOIN professore p ON a.Professore = p.Codice
+                JOIN insegnamento i ON a.Insegnamento = i.Codice
+                JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice
+                LEFT JOIN recensione r ON a.Codice = r.Appunti
+                WHERE 1=1";
+        
+        $params = [];
+        $types = "";
+
+        // Filtro Testo (cerca in Nome Appunto, Nome Prof o Nome Insegnamento)
+        if (!empty($text)) {
+            $sql .= " AND (a.Nome LIKE ? OR p.Nome LIKE ? OR i.Nome LIKE ?)";
+            $searchTerm = "%" . $text . "%";
+            array_push($params, $searchTerm, $searchTerm, $searchTerm);
+            $types .= "sss";
+        }
+
+        // Filtro Professore
+        if (!empty($prof)) {
+            $sql .= " AND a.Professore = ?";
+            $params[] = $prof;
+            $types .= "s";
+        }
+
+        // Filtro Materia
+        if (!empty($subject)) {
+            $sql .= " AND a.Insegnamento = ?";
+            $params[] = $subject;
+            $types .= "s";
+        }
+
+        $sql .= " GROUP BY a.Codice ORDER BY a.Data DESC";
+
+        $stmt = $this->db->prepare($sql);
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Ottiene tutti i professori per il filtro
+     */
+    public function getAllProfessors() {
+        $result = $this->db->query("SELECT Codice, Nome FROM professore ORDER BY Nome");
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Ottiene tutte le materie per il filtro
+     */
+    public function getAllSubjects() {
+        $result = $this->db->query("SELECT Codice, Nome FROM insegnamento ORDER BY Nome");
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>
