@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label class="form-label">Corso e Professore</label>
                     <div class="input-group">
-                        <input type="text" class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca">
+                        <input type="text" class="form-control focus-ring focus-ring-danger" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalRicerca">
                             <i class="bi bi-search"></i> Cerca
                         </button>
@@ -27,12 +27,12 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
+                    <input type="text" class="form-control focus-ring focus-ring-danger" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
                 <div class="mb-3">
-                    <input class="form-control d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" type="file" name="file" id="formFile" accept=".pdf" required>
+                    <input class="form-control focus-ring focus-ring-danger" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
                 <div class="d-grid">
@@ -57,11 +57,8 @@
                 <div class="list-group" id="resultsList">
                     <?php foreach ($listaDati as $riga): ?>
                         <?php 
-                            // 1. PULIZIA: trim rimuove \r e \n che rompono tutto
                             $idProf = trim($riga['CodiceProf']);
                             $idCorso = trim($riga['CodiceCorso']);
-                            
-                            // 2. DISPLAY: Creiamo le stringhe per l'utente
                             $nomeCorso = htmlspecialchars($riga['NomeCorso']);
                             $nomeProf = htmlspecialchars($riga['NomeProf']);
                             $nomeCdl = htmlspecialchars($riga['NomeCdl']);
@@ -89,6 +86,5 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/search.js"></script>
 </section>

@@ -93,7 +93,7 @@
         <section class="text-white py-5 text-center">
             <div class="container z-1 py-4">
                 <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>
-                <a href="carica.php" class="btn btn-light btn-upload text-danger fw-bold px-4 py-2 rounded-3 shadow">
+                <a href="carica.php" class="btn btn-light btn-upload fw-bold px-4 py-2 rounded-3 shadow">
                     <i class="bi bi-upload me-2"></i>Carica qui
                 </a>
             </div>

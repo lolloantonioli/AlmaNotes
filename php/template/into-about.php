@@ -14,10 +14,10 @@
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
+                <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
                     <i class="bi bi-folder fs-1 user-select-none" style="color: white;"></i>
                 </div>
-                <h4 class="text-danger fw-bold">Condivisione degli appunti</h4>
+                <h4 class="fw-bold">Condivisione degli appunti</h4>
                 <p class="text-secondary">
                     Carica i tuoi appunti in modo semplice e veloce.
                     Tutti i documenti vengono organizzati per corso, docente e anno
@@ -26,10 +26,10 @@
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
+                <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
                     <i class="bi bi-upload fs-1 user-select-none" style="color: white;"></i>
                 </div>
-                <h4 class="text-danger fw-bold">Upload semplice e sicuro</h4>
+                <h4 class="fw-bold">Upload semplice e sicuro</h4>
                 <p class="text-secondary">
                     Nessuna complicazione: trascini il file, scegli il corso, pubblichi.
                     Tutto rimane salvato nel tuo profilo.
@@ -37,10 +37,10 @@
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="d-inline-flex align-items-center justify-content-center bg-danger text-white rounded-3 p-3 mb-3">
+                <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
                     <i class="bi bi-people fs-1 user-select-none" style="color: white;"></i>
                 </div>
-                <h4 class="text-danger fw-bold">Community UniBo</h4>
+                <h4 class="fw-bold">Community UniBo</h4>
                 <p class="text-secondary">
                     Un luogo fatto su misura per chi studia a Bologna: niente caos, niente
                     spam. Solo ciò che serve agli studenti, diviso per corsi reali dell'ateneo.
@@ -50,7 +50,7 @@
 
         <div class="row mt-5">
             <div class="col-12 col-lg-6 ">
-                <h2 class="display-5 fw-bold text-danger mb-3">La Nostra Missione</h2>
+                <h2 class="display-5 fw-bold mb-3" style="color: #BB2E29;">La Nostra Missione</h2>
                 <p class="lead fs-5">
                     Crediamo che la condivisione del sapere renda l'università più inclusiva e meno stressante.
                     Per questo vogliamo costruire una piattaforma moderna, intuitiva e completamente dedicata

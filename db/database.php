@@ -20,7 +20,7 @@ class Database {
     }
 
     public function getTopNotes($n = 9) {
-        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, p.Nome AS Professore, c.Nome AS Corso_Laurea, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.codice = t.professore JOIN insegnamento i ON t.insegnamento = i.codice JOIN corso_di_laurea c ON i.corso_di_laurea = c.codice GROUP BY a.Codice, a.Nome, p.Nome, c.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN insegnamento i ON a.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome, c.Nome, i.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,7 +29,7 @@ class Database {
     }
 
     public function getMostRecentsNotes($n = 9) {
-        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, p.Nome AS Professore, c.Nome AS Corso_Laurea, a.Data, a.Utente FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN tenere t ON p.Codice = t.Professore JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice ORDER BY a.Data DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Data, a.Utente, p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, COALESCE(AVG(r.Stelle), 0) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN professore p ON a.Professore = p.Codice JOIN insegnamento i ON a.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice LEFT JOIN recensione r ON a.Codice = r.Appunti GROUP BY a.Codice, a.Nome, a.NomeFile, a.Download, a.Data, a.Utente, p.Nome, c.Nome, i.Nome ORDER BY a.Data DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -45,8 +45,8 @@ class Database {
     }
 
     public function insertNote($nome, $professore, $insegnamento, $file, $utente) {
-        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, NomeFile, Data, Utente, Download) VALUES (?, ?, ?, CURDATE(), ?, 0)");
-        $stmt->bind_param("ssss", $nome, $professore, $file, $utente);
+        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, Insegnamento, NomeFile, Data, Utente, Download) VALUES (?, ?, ?, ?, CURDATE(), ?, 0)");
+        $stmt->bind_param("sssss", $nome, $professore, $insegnamento, $file, $utente);
         $executed = $stmt->execute();
         if (!$executed) {
             return false;
