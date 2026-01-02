@@ -226,6 +226,10 @@ class Database {
         $result = $this->db->query("SELECT DISTINCT Utente FROM appunti ORDER BY Utente");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-}
 
-?>
+    public function insertRecensione($appunti, $utente, $stelle) {
+        $stmt = $this->db->prepare("REPLACE INTO recensione (Appunti, Utente, Stelle) VALUES (?, ?, ?)");
+        $stmt->bind_param("isi", $appunti, $utente, $stelle);
+        return $stmt->execute();
+    }
+}
