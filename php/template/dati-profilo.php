@@ -65,7 +65,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-download"></i> I file che hai scaricato
                 </h3>
-                <a href="#" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
+                <a href="downloads-utente.php" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewdownloadedfiles"] as $appunto): ?>
@@ -86,7 +86,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-upload"></i> I file che hai caricato
                 </h3>
-                <a href="#" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
+                <a href="uploads-utente.php" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewuploadedfiles"] as $appunto): ?>

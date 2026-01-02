@@ -6,12 +6,20 @@
     
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-8">
-            <div class="input-group input-group-lg bg-white rounded-pill p-1 mb-5 mt-3 shadow">
+            <form action="cerca.php" method="GET" class="input-group input-group-lg bg-white rounded-pill p-1 mb-5 mt-3 shadow">
                 <span class="input-group-text border-0 bg-transparent ps-3 text-muted user-select-none">
                     <i class="bi bi-search"></i>
                 </span>
-                <input type="text" class="form-control border-0 bg-transparent shadow-none" placeholder="Cerca per esame, professore o argomento">
-            </div>
+                <input type="text" class="form-control border-0 bg-transparent shadow-none" name="q" placeholder="Cerca per esame, professore o argomento" value="<?php echo htmlspecialchars($templateParams["search_text"] ?? ''); ?>">
+                <button type="submit" class="btn btn-dark rounded-end-pill px-4 fw-bold">CERCA</button>
+                      
+                <?php if(!empty($templateParams["selected_prof"])): ?>
+                        <input type="hidden" name="prof" value="<?php echo htmlspecialchars($templateParams["selected_prof"]); ?>">
+                    <?php endif; ?>
+                    <?php if(!empty($templateParams["selected_subject"])): ?>
+                        <input type="hidden" name="subject" value="<?php echo htmlspecialchars($templateParams["selected_subject"]); ?>">
+                    <?php endif; ?>
+            </form>
         </div>
     </div>
 </div>
