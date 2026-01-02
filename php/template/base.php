@@ -60,6 +60,13 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("recensioni.php");?>" 
+                                href="recensioni.php">
+                                <i class="bi bi-star me-2"></i>Recensisci
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("contatti.php");?>" 
                                 href="contatti.php">
                                 <i class="bi bi-envelope me-2"></i>Contatti
@@ -119,6 +126,7 @@
                     <a href="index.php" class="text-decoration-none text-reset">Home</a>
                     <a href="carica.php" class="text-decoration-none text-reset">Carica</a>
                     <a href="cerca.php" class="text-decoration-none text-reset">Cerca</a>
+                    <a href="recensioni.php" class="text-decoration-none text-reset">Recensisci</a>
                     <a href="contatti.php" class="text-decoration-none text-reset">Contatti</a>
                     <a href="about.php" class="text-decoration-none text-reset">About</a>
                 </div>
@@ -128,4 +136,5 @@
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/AlmaNotes/js/reviews.js"></script>
 </html>

@@ -56,3 +56,20 @@ p, a {
 footer {
     color: #BB2E29;
 }
+
+/* Star Rating Button Styles */
+.star-btn {
+    font-size: 2rem;
+    color: #ddd;
+    transition: all 0.2s;
+    padding: 0.5rem 0.8rem;
+}
+
+.star-btn:hover {
+    color: #ffc107;
+    transform: scale(1.1);
+}
+
+.star-btn.selected {
+    color: #ffc107;
+}
