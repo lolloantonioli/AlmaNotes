@@ -44,23 +44,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = $dbh->insertNote($nomeAppunto, $idProfessore, $idInsegnamento, $newFileName, $utente);
 
                 if ($result) {
-                    echo "<script>alert('File caricato con successo!'); window.location.href = 'index.php';</script>";
+                    $_SESSION['flash_message'] = 'File caricato con successo!';
+                    $_SESSION['flash_type'] = 'success';
+                    header('Location: carica.php');
+                    exit;
                 } else {
                     // Se fallisce il DB, cancelliamo il file caricato per non occupare spazio inutile
                     if (file_exists($destPath)) unlink($destPath);
-                    echo "<script>alert('Errore nel database. Riprova.'); window.history.back();</script>";
+                    $_SESSION['flash_message'] = 'Errore nel database. Riprova.';
+                    $_SESSION['flash_type'] = 'error';
+                    header('Location: carica.php');
+                    exit;
                 }
 
             } else {
-                echo "<script>alert('Errore nello spostamento del file.'); window.history.back();</script>";
+                $_SESSION['flash_message'] = 'Errore nello spostamento del file.';
+                $_SESSION['flash_type'] = 'error';
+                header('Location: carica.php');
+                exit;
             }
 
         } else {
-            echo "<script>alert('Formato non valido. Solo PDF.'); window.history.back();</script>";
+            $_SESSION['flash_message'] = 'Formato non valido. Solo PDF.';
+            $_SESSION['flash_type'] = 'error';
+            header('Location: carica.php');
+            exit;
         }
 
     } else {
-        echo "<script>alert('Errore: Seleziona un file PDF.'); window.history.back();</script>";
+        $_SESSION['flash_message'] = 'Errore: Seleziona un file PDF.';
+        $_SESSION['flash_type'] = 'error';
+        header('Location: carica.php');
+        exit;
     }
 } else {
     header("Location: index.php");

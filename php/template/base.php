@@ -83,6 +83,8 @@
         if(isset($templateParams["nome"])){
             require($templateParams["nome"]);
         }
+
+        
         ?>
 
     </main>

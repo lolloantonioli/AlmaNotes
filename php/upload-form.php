@@ -10,6 +10,15 @@
             <div class="text-center mb-0">
                 <i class="bi bi-upload me-2 user-select-none"></i><h1 class="text-danger fw-bold">Carica</h1>
             </div>
+
+            <?php if (isset($_SESSION['flash_message'])):
+                $msg = htmlspecialchars($_SESSION['flash_message']);
+                $type = $_SESSION['flash_type'] ?? 'info';
+                unset($_SESSION['flash_message'], $_SESSION['flash_type']);
+                $smallClass = ($type === 'success') ? 'text-success' : (($type === 'error') ? 'text-danger' : 'text-muted');
+            ?>
+            <div class="text-center mb-2"><small class="<?php echo $smallClass; ?>"><?php echo $msg; ?></small></div>
+            <?php endif; ?>
             
             <form action="inserimento-appunti.php" method="POST" enctype="multipart/form-data">
 
