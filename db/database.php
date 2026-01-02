@@ -20,7 +20,7 @@ class Database {
     }
 
     public function getTopNotes($n = 9) {
-        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, AVG(r.Stelle) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN insegnamento i ON a.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome, c.Nome, i.Nome HAVING numero_recensioni >= 3 ORDER BY media_recensioni DESC LIMIT ?");
+        $stmt = $this->db->prepare("SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, COALESCE(AVG(r.Stelle), 0) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni FROM appunti a LEFT JOIN recensione r ON a.Codice = r.Appunti JOIN professore p ON a.Professore = p.Codice JOIN insegnamento i ON a.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice GROUP BY a.Codice, a.Nome, a.NomeFile, a.Download, a.Utente, a.Data, p.Nome, c.Nome, i.Nome ORDER BY a.Download DESC LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
