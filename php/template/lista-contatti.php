@@ -5,7 +5,7 @@
         </h3>
         <div class="col-12 col-lg-6 d-flex justify-content-center">
             <div class="card shadow border border-danger-subtle" style="width: 18.6rem;">
-                <img src="img/lollo.jpeg" width="100%" height="200px" class="card-img-top" alt="">
+                <img src="img/lollo.jpeg" width="100%" height="200px" class="card-img-top" alt="Lollo's image">
                 <div class="card-body">
                     <h5 class="card-title">Lorenzo Antonioli</h5>
                     <p class="card-text">Sono uno studente di Ingegneria e Scienze Informatiche all'Università di Bologna.</p>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-12 col-lg-6 d-flex justify-content-center">
             <div class="card shadow border border-danger-subtle" style="width: 18.6rem;">
-                <img src="img/luca.jpeg" class="card-img-top" alt="...">
+                <img src="img/luca.jpeg" class="card-img-top" alt="Luca's image">
                 <div class="card-body">
                     <h5 class="card-title">Luca Varale Rolla</h5>
                     <p class="card-text">Sono uno studente di Ingegneria e Scienze Informatiche all'Università di Bologna.</p>
