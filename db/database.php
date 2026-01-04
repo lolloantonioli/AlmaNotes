@@ -177,7 +177,7 @@ class Database {
             $types .= "s";
         }
 
-        $sql .= " GROUP BY a.Codice ORDER BY a.Data DESC";
+        $sql .= " GROUP BY a.Codice, a.Nome, a.NomeFile, a.Download, a.Data, a.Utente, p.Nome, c.Nome, i.Nome ORDER BY a.Data DESC";
 
         $stmt = $this->db->prepare($sql);
         if (!empty($params)) {
