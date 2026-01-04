@@ -27,17 +27,17 @@
             </div>
     
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off" required/>
+                <input type="text" class="form-control focus-ring focus-ring-danger" id="username" name="username" placeholder="Username" autocomplete="off" required/>
                 <label for="username">Username</label>
             </div>
     
             <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="off" required/>
+                <input type="email" class="form-control focus-ring focus-ring-danger" id="email" name="email" placeholder="name@example.com" autocomplete="off" required/>
                 <label for="email">Email address</label>
             </div>
     
             <div class="form-floating mb-4">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" required/>
+                <input type="password" class="form-control focus-ring focus-ring-danger" id="password" name="password" placeholder="Password" autocomplete="off" required/>
                 <label for="password">Password</label>
             </div>
     
