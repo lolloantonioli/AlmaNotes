@@ -30,7 +30,7 @@
                     >
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1 fw-bold"><?php echo htmlspecialchars($appunto["Nome"]); ?></h5>
-                            <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo number_format($appunto["media_recensioni"], 1); ?></span>
+                            <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo round($appunto["media_recensioni"], 1); ?></span>
                         </div>
                         <p class="mb-1">Prof. <?php echo htmlspecialchars($appunto["Professore"]); ?> - <?php echo htmlspecialchars($appunto["Corso_Laurea"]); ?></p>
                         <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>

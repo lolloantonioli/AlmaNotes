@@ -119,8 +119,7 @@
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
-                        <span class="small text-muted"><i class="bi bi-star"></i> <?php echo $appunto["media_recensioni"]; ?>/5</span>
-                    </div>
+                        <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo round($appunto["media_recensioni"], 1); ?></span>                    </div>
                     <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["Corso_Laurea"]; ?></p>
                     <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                 </a>
@@ -181,7 +180,7 @@
                 >
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 fw-bold"><?php echo $appunto["Nome"]; ?></h5>
-                        <span class="small text-muted"><i class="bi bi-star"></i> <?php echo $appunto["MediaRecensioni"]; ?>/5</span>
+                        <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo round($appunto["MediaRecensioni"], 1); ?></span>
                     </div>
                     <p class="mb-1">Prof. <?php echo $appunto["Professore"]; ?> - <?php echo $appunto["CorsoDiLaurea"]; ?></p>
                     <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>

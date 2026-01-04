@@ -5,6 +5,10 @@ body > main > div:first-of-type, body > section:last-of-type {
     background-position: center;
 }
 
+.nav-text {
+    color: #BB2E29;
+}
+
 .btn-upload {
     color: #BB2E29;
 }
