@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form action="cerca.php" method="GET" class="d-flex">
-                    <input type="text" name="q" class="form-control form-control-lg rounded-start-pill border-0 px-4" placeholder="Cosa stai cercando?" value="<?php echo htmlspecialchars($templateParams["search_text"]); ?>">
+                    <input type="text" name="q" class="form-control form-control-lg focus-ring focus-ring-danger rounded-start-pill border-0 px-4" autocomplete="off" placeholder="Cosa stai cercando?" value="<?php echo htmlspecialchars($templateParams["search_text"]); ?>">
                     <button type="submit" class="btn btn-dark rounded-end-pill px-4 fw-bold">CERCA</button>
                     
                     <?php if(!empty($templateParams["selected_prof"])): ?>
@@ -106,7 +106,7 @@
                     <p>Prova a cambiare i filtri o cerca qualcos'altro.</p>
                 </div>
             <?php else: ?>
-                <div class="row g-0">
+                <div class="row gx-4">
                     <div class="col-md-6">
                         <div class="list-group">
                             <?php foreach(array_slice($templateParams["risultati"], 0, ceil(count($templateParams["risultati"])/2)) as $appunto): ?>
@@ -213,7 +213,7 @@
                     
                     <div class="mb-4">
                         <label class="form-label fw-semibold small text-uppercase text-muted">Materia</label>
-                        <select class="form-select bg-light border-0" name="subject">
+                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="subject">
                             <option value="">Tutte le materie</option>
                             <?php foreach($templateParams["filtri_materie"] as $mat): ?>
                                 <option value="<?php echo $mat['Codice']; ?>" <?php echo ($templateParams["selected_subject"] == $mat['Codice']) ? 'selected' : ''; ?>>
@@ -225,7 +225,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-semibold small text-uppercase text-muted">Professore</label>
-                        <select class="form-select bg-light border-0" name="prof">
+                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="prof">
                             <option value="">Tutti i professori</option>
                             <?php foreach($templateParams["filtri_prof"] as $prof): ?>
                                 <option value="<?php echo $prof['Codice']; ?>" <?php echo ($templateParams["selected_prof"] == $prof['Codice']) ? 'selected' : ''; ?>>
@@ -237,7 +237,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-semibold small text-uppercase text-muted">Corso di Laurea</label>
-                        <select class="form-select bg-light border-0" name="course">
+                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="course">
                             <option value="">Tutti i corsi</option>
                             <?php foreach($templateParams["filtri_corsi"] as $corso): ?>
                                 <option value="<?php echo htmlspecialchars($corso['Nome']); ?>" <?php echo ($templateParams["selected_course"] == $corso['Nome']) ? 'selected' : ''; ?>>
@@ -249,7 +249,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-semibold small text-uppercase text-muted">Utente</label>
-                        <select class="form-select bg-light border-0" name="user">
+                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="user">
                             <option value="">Tutti gli utenti</option>
                             <?php foreach($templateParams["filtri_utenti"] as $utente): ?>
                                 <option value="<?php echo htmlspecialchars($utente['Utente']); ?>" <?php echo ($templateParams["selected_user"] == $utente['Utente']) ? 'selected' : ''; ?>>

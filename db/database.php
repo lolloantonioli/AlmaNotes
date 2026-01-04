@@ -258,14 +258,54 @@ class Database {
     }
 
     public function getAllDownloadedFiles($username) {
-        $stmt = $this->db->prepare("SELECT A.Codice, A.Nome, P.Nome AS Professore, C.Nome AS Corso_Laurea, S.Data AS Data_Download, A.Download FROM appunti A JOIN scarica S ON A.Codice = S.Appunti JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE S.Utente = ? GROUP BY A.Codice, A.Nome, P.Nome, C.Nome, A.Download, S.Data ORDER BY S.Data DESC;");
+        $stmt = $this->db->prepare("SELECT 
+                A.Codice, 
+                A.Nome, 
+                A.NomeFile, 
+                A.Utente, 
+                A.Data, -- Data di caricamento
+                MAX(S.Data) AS Data_Download, -- Data ultimo download
+                P.Nome AS Professore, 
+                C.Nome AS Corso_Laurea, 
+                I.Nome AS Insegnamento, 
+                COALESCE(AVG(R.Stelle), 0) AS media_recensioni, 
+                COUNT(R.Stelle) AS numero_recensioni, 
+                A.Download 
+            FROM appunti A 
+            JOIN scarica S ON A.Codice = S.Appunti 
+            JOIN professore P ON A.Professore = P.Codice 
+            JOIN insegnamento I ON A.Insegnamento = I.Codice 
+            JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice 
+            LEFT JOIN recensione R ON A.Codice = R.Appunti 
+            WHERE S.Utente = ? 
+            GROUP BY A.Codice, A.Nome, A.NomeFile, A.Utente, A.Data, P.Nome, C.Nome, I.Nome, A.Download
+            ORDER BY Data_Download DESC;");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getAllUploadedFiles($username) {
-        $stmt = $this->db->prepare("SELECT A.Codice, A.Nome, P.Nome AS Professore, C.Nome AS Corso_Laurea, COALESCE(AVG(R.Stelle), 0) AS media_recensioni, A.Download FROM appunti A JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE A.Utente = ? GROUP BY A.Codice, A.Nome, P.Nome, C.Nome, A.Download ORDER BY A.Nome DESC;");
+        $stmt = $this->db->prepare("SELECT 
+                A.Codice, 
+                A.Nome, 
+                A.NomeFile, 
+                A.Data, 
+                A.Utente, 
+                P.Nome AS Professore, 
+                C.Nome AS Corso_Laurea, 
+                I.Nome AS Insegnamento, 
+                COALESCE(AVG(R.Stelle), 0) AS media_recensioni, 
+                COUNT(R.Stelle) AS numero_recensioni, 
+                A.Download 
+            FROM appunti A 
+            JOIN professore P ON A.Professore = P.Codice 
+            JOIN insegnamento I ON A.Insegnamento = I.Codice 
+            JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice 
+            LEFT JOIN recensione R ON A.Codice = R.Appunti 
+            WHERE A.Utente = ? 
+            GROUP BY A.Codice, A.Nome, A.NomeFile, A.Data, A.Utente, P.Nome, C.Nome, I.Nome, A.Download 
+            ORDER BY A.Data DESC;");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

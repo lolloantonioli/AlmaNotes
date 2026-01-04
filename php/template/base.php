@@ -32,49 +32,42 @@
                     
                     <div class="offcanvas-header">
                         <h4 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Menu</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
     
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
                             
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("index.php");?>" 
+                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("index.php");?>" 
                                 href="index.php">
                                 <i class="bi bi-house-door me-2"></i>Home
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("cerca.php");?>" 
+                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("cerca.php");?>" 
                                 href="cerca.php">
                                 <i class="bi bi-search me-2"></i>Cerca
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("carica.php");?>" 
+                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("carica.php");?>" 
                                 href="carica.php">
                                 <i class="bi bi-cloud-upload me-2"></i>Carica
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("recensioni.php");?>" 
+                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("recensioni.php");?>" 
                                 href="recensioni.php">
                                 <i class="bi bi-star me-2"></i>Recensisci
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("contatti.php");?>" 
-                                href="contatti.php">
-                                <i class="bi bi-envelope me-2"></i>Contatti
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("about.php");?>" 
+                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("about.php");?>" 
                                 href="about.php">
                                 <i class="bi bi-info-circle me-2"></i>About
                                 </a>
@@ -127,7 +120,6 @@
                     <a href="carica.php" class="text-decoration-none text-reset">Carica</a>
                     <a href="cerca.php" class="text-decoration-none text-reset">Cerca</a>
                     <a href="recensioni.php" class="text-decoration-none text-reset">Recensisci</a>
-                    <a href="contatti.php" class="text-decoration-none text-reset">Contatti</a>
                     <a href="about.php" class="text-decoration-none text-reset">About</a>
                 </div>
 

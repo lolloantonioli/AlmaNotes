@@ -3,7 +3,7 @@ function isActive($pageName){
     if(basename($_SERVER['PHP_SELF'])==$pageName){
         // AGGIUNTO: link-underline-opacity-100
         // Questo vince sullo "0" messo nell'HTML e rende la riga visibile
-        echo ' active fw-bold text-decoration-underline link-underline-opacity-100'; 
+        echo ' active fw-bold'; 
     }
 }
 
