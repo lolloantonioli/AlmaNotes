@@ -14,4 +14,5 @@ $templateParams["nome"] = "lista-upload-utente.php";
 $templateParams["uploadedFiles"] = $uploadedFiles;
 
 require 'template/base.php';
+require 'template/modal-download.php';
 ?>

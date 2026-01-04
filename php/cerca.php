@@ -58,4 +58,5 @@ $templateParams["selected_course"] = $filterCourse;
 $templateParams["selected_user"] = $filterUser;
 
 require 'template/base.php';
+require 'template/modal-download.php';
 ?>

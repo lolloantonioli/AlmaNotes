@@ -12,4 +12,5 @@ $templateParams["topnotes"] = $dbh->getTopNotesByUser($_SESSION["username"], 3);
 $templateParams["favoritesnotes"] = $dbh->getMostFavoritesNotesByUser($_SESSION["username"], 3);
 
 require 'template/base.php';
+require 'template/modal-download.php';
 ?>
