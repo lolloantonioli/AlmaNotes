@@ -89,7 +89,7 @@ class Database {
 
     public function getPreviewDownloadedFiles($username, $n = 3) {
         // Left join per le recensioni (così prende anche appunti senza voti)
-        $stmt = $this->db->prepare("SELECT A.Nome, P.Nome AS Professore, C.Nome AS Corso_Laurea, S.Data AS Data_Download, A.Download FROM appunti A JOIN scarica S ON A.Codice = S.Appunti JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE S.Utente = ? GROUP BY A.Codice, A.Nome, P.Nome, C.Nome, A.Download, S.Data ORDER BY S.Data DESC LIMIT ?;");
+        $stmt = $this->db->prepare("SELECT A.Codice, A.Nome, A.NomeFile, A.Utente, A.Data, I.Nome AS Insegnamento, P.Nome AS Professore, C.Nome AS Corso_Laurea, S.Data AS Data_Download, COALESCE(AVG(r.Stelle), 0) AS media_recensioni, COUNT(DISTINCT r.Utente) AS numero_recensioni, A.Download FROM appunti A JOIN scarica S ON A.Codice = S.Appunti JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE S.Utente = ? GROUP BY A.Codice, A.Nome, A.NomeFile, A.Utente, A.Data, I.Nome, P.Nome, C.Nome, S.Data, A.Download ORDER BY S.Data DESC LIMIT ?;");
         $stmt->bind_param('si', $username, $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -99,7 +99,25 @@ class Database {
 
     public function getPreviewUploadedFiles($username, $n = 3) {
         // Left join per le recensioni (così prende anche appunti senza voti)
-        $stmt = $this->db->prepare("SELECT A.Nome, P.Nome AS Professore, C.Nome AS Corso_Laurea, COALESCE(AVG(R.Stelle), 0) AS media_recensioni, A.Download FROM appunti A JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE A.Utente = ? GROUP BY A.Codice, A.Nome, P.Nome, C.Nome, A.Download ORDER BY A.Nome DESC LIMIT ?;");
+        $stmt = $this->db->prepare("SELECT 
+            A.Codice, 
+            A.Nome, 
+            A.Data, 
+            P.Nome AS Professore, 
+            C.Nome AS Corso_Laurea, 
+            I.Nome AS Insegnamento, 
+            COALESCE(AVG(R.Stelle), 0) AS media_recensioni, 
+            COUNT(R.Stelle) AS numero_recensioni, 
+            A.Download 
+        FROM appunti A 
+        JOIN professore P ON A.Professore = P.Codice 
+        JOIN insegnamento I ON A.Insegnamento = I.Codice 
+        JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice 
+        LEFT JOIN recensione R ON A.Codice = R.Appunti 
+        WHERE A.Utente = ? 
+        GROUP BY A.Codice, A.Nome, A.Data, P.Nome, C.Nome, I.Nome, A.Download 
+        ORDER BY A.Nome DESC 
+        LIMIT ?;");
         $stmt->bind_param('si', $username, $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -108,7 +126,25 @@ class Database {
     }
 
     public function getTopNotesByUser($username, $n = 3) {
-        $stmt = $this->db->prepare("SELECT A.Codice, A.Nome, A.Data, A.Download, P.Nome AS Professore, C.Nome AS CorsoDiLaurea FROM appunti A JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice WHERE A.Utente = ? GROUP BY A.Codice, A.Nome, A.Data, A.Download, P.Nome, C.Nome ORDER BY A.Download DESC LIMIT ?;");
+        $stmt = $this->db->prepare("SELECT 
+            A.Codice, 
+            A.Nome, 
+            A.Data, 
+            A.Download, 
+            P.Nome AS Professore, 
+            C.Nome AS CorsoDiLaurea, 
+            I.Nome AS Insegnamento, 
+            COALESCE(AVG(R.Stelle), 0) AS media_recensioni, 
+            COUNT(R.Stelle) AS numero_recensioni 
+        FROM appunti A 
+        JOIN professore P ON A.Professore = P.Codice 
+        JOIN insegnamento I ON A.Insegnamento = I.Codice 
+        JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice 
+        LEFT JOIN recensione R ON A.Codice = R.Appunti 
+        WHERE A.Utente = ? 
+        GROUP BY A.Codice, A.Nome, A.Data, A.Download, P.Nome, C.Nome, I.Nome 
+        ORDER BY A.Download DESC 
+        LIMIT ?;");
         $stmt->bind_param('si', $username, $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -117,7 +153,25 @@ class Database {
     }
 
     public function getMostFavoritesNotesByUser($username, $n = 3) {
-        $stmt = $this->db->prepare("SELECT A.Codice, A.Nome, A.Data, P.Nome AS Professore, C.Nome AS CorsoDiLaurea, COALESCE(AVG(R.Stelle), 0) AS MediaRecensioni, A.Download FROM appunti A JOIN professore P ON A.Professore = P.Codice JOIN insegnamento I ON A.Insegnamento = I.Codice JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice LEFT JOIN recensione R ON A.Codice = R.Appunti WHERE A.Utente = ? GROUP BY A.Codice, A.Nome, A.Data, P.Nome, C.Nome, A.Download ORDER BY MediaRecensioni DESC LIMIT ?;");
+        $stmt = $this->db->prepare("SELECT 
+            A.Codice, 
+            A.Nome, 
+            A.Data, 
+            P.Nome AS Professore, 
+            C.Nome AS CorsoDiLaurea, 
+            I.Nome AS Insegnamento, 
+            COALESCE(AVG(R.Stelle), 0) AS MediaRecensioni, 
+            COUNT(R.Stelle) AS numero_recensioni, 
+            A.Download 
+        FROM appunti A 
+        JOIN professore P ON A.Professore = P.Codice 
+        JOIN insegnamento I ON A.Insegnamento = I.Codice 
+        JOIN corso_di_laurea C ON I.Corso_di_laurea = C.Codice 
+        LEFT JOIN recensione R ON A.Codice = R.Appunti 
+        WHERE A.Utente = ? 
+        GROUP BY A.Codice, A.Nome, A.Data, P.Nome, C.Nome, I.Nome, A.Download 
+        ORDER BY MediaRecensioni DESC 
+        LIMIT ?;");
         $stmt->bind_param('si', $username, $n);
         $stmt->execute();
         $result = $stmt->get_result();
