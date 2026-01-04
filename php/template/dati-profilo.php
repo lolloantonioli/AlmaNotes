@@ -201,8 +201,8 @@
         <div class="modal-content rounded-4 shadow border-0">
             
             <div class="modal-header border-bottom-0">
-                <h5 class="modal-title fw-bold text-danger">Conferma Logout</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title fw-bold">Conferma Logout</h5>
+                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
             <div class="modal-body text-center py-4">

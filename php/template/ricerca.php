@@ -205,7 +205,7 @@
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">
                 <h1 class="modal-title fs-5 fw-bold text-danger" id="filtersModalLabel"><i class="bi bi-funnel me-2"></i>Seleziona Filtri</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="cerca.php" method="GET" id="filterForm">

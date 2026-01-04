@@ -8,7 +8,10 @@
         <div class="w-100 px-3" style="max-width: 400px;">
             
             <div class="text-center mb-0">
-                <i class="bi bi-upload me-2 user-select-none"></i><h1 class="text-danger fw-bold">Carica</h1>
+                <h1 class="fw-bold mb-4 d-flex align-items-center justify-content-center gap-2" style="color: #BB2E29">
+                    <i class="bi bi-upload fs-2"></i>
+                    Carica
+                </h1>
             </div>
 
             <?php if (isset($_SESSION['flash_message'])):
@@ -35,12 +38,12 @@
                     </div>
                 </div>
 
-                <div class="form-floating mb-2">
+                <div class="form-floating mb-3">
                     <input type="text" class="form-control focus-ring focus-ring-danger" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
-                <div class="mb-3">
+                <div class="mb-4">
                     <input class="form-control focus-ring focus-ring-danger" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
@@ -57,11 +60,11 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Seleziona Insegnamento e Docente</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 
-                <input type="text" id="searchInput" class="form-control mb-3" placeholder="Scrivi nome corso o prof...">
+                <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger" placeholder="Scrivi nome corso o prof..." autocomplete="off">
 
                 <div class="list-group" id="resultsList">
                     <?php foreach ($listaDati as $riga): ?>

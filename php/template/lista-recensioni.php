@@ -48,8 +48,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">
-                <h1 class="modal-title fs-5 fw-bold text-danger" id="reviewModalLabel"><i class="bi bi-star me-2"></i>Lascia una Recensione</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5 fw-bold" id="reviewModalLabel" style="color: #BB2E29"><i class="bi bi-star me-2"></i>Lascia una Recensione</h1>
+                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <h4 class="fw-bold mb-1" id="modalFileName">...</h4>

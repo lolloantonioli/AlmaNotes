@@ -6,7 +6,7 @@
                 <h1 class="modal-title fs-5 fw-bold" style="color: #BB2E29;">
                     <i class="bi bi-file-earmark-pdf me-2"></i>Dettagli Appunto
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Chiudi"></button>
             </div>
             
             <div class="modal-body text-center pt-3">
