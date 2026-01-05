@@ -32,7 +32,7 @@
                 <div class="mb-3">
                     <label class="form-label">Corso e Professore</label>
                     <div class="input-group">
-                        <input type="text" class="form-control focus-ring focus-ring-danger" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
+                        <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalRicerca">
                             <i class="bi bi-search"></i> Cerca
                         </button>
@@ -40,12 +40,12 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control focus-ring focus-ring-danger" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
+                    <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
                 <div class="mb-4">
-                    <input class="form-control focus-ring focus-ring-danger" type="file" name="file" id="formFile" accept=".pdf" required>
+                    <input class="form-control focus-ring focus-ring-danger border border-danger-subtle" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
                 <div class="d-grid">
@@ -65,7 +65,7 @@
                 </div>
                 <div class="modal-body">
                     
-                    <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger" placeholder="Scrivi nome corso o prof..." autocomplete="off">
+                    <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger border border-danger-subtle" placeholder="Scrivi nome corso o prof..." autocomplete="off">
 
                     <div class="list-group" id="resultsList">
                         <div class="text-center text-muted small mt-2">Inizia a scrivere per cercare...</div>
