@@ -1,3 +1,9 @@
+<?php 
+    // Assicurati che $dbh sia inizializzato
+    $listaDati = $dbh->getCorsiProfessori();
+    $jsonDati = json_encode($listaDati);
+?>
+
 <section class="bg-light d-flex flex-column justify-content-center align-items-center vh-100" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="bg-light bg-opacity-95 rounded-4 shadow-lg p-4 p-sm-5 mx-3" style="max-width: 450px; width: 100%;">
         <div class="w-100 px-3" style="max-width: 400px;">
@@ -26,7 +32,7 @@
                 <div class="mb-3">
                     <label class="form-label">Corso e Professore</label>
                     <div class="input-group">
-                        <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
+                        <input type="text" class="form-control focus-ring focus-ring-danger" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
                         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalRicerca">
                             <i class="bi bi-search"></i> Cerca
                         </button>
@@ -34,12 +40,12 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
+                    <input type="text" class="form-control focus-ring focus-ring-danger" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
                     <label for="floatingInput">Nome File</label>
                 </div>
         
                 <div class="mb-4">
-                    <input class="form-control focus-ring focus-ring-danger border border-danger-subtle" type="file" name="file" id="formFile" accept=".pdf" required>
+                    <input class="form-control focus-ring focus-ring-danger" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
                 <div class="d-grid">
@@ -54,22 +60,23 @@
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Cerca Insegnamento o Docente</h5>
+                    <h5 class="modal-title">Seleziona Insegnamento e Docente</h5>
                     <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     
-                    <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger border border-0" placeholder="Digita almeno 2 caratteri" autocomplete="off" autofocus>
+                    <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger" placeholder="Scrivi nome corso o prof..." autocomplete="off">
 
                     <div class="list-group" id="resultsList">
-                        <div class="text-center text-muted mt-3">
-                            <small>Inizia a scrivere per cercare...</small>
-                        </div>
+                        <div class="text-center text-muted small mt-2">Inizia a scrivere per cercare...</div>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-<script src="/AlmaNotes/js/search.js"></script>
+    <script>
+        const tuttiICorsi = <?php echo $jsonDati; ?>;
+    </script>
+    <script src="/AlmaNotes/js/search.js"></script>
 </section>
