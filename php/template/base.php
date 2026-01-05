@@ -103,27 +103,42 @@
         </section>
     <?php endif; ?>
     
-    <footer class="bg-light py-5 border-top">
+<footer class="bg-light pt-5 pb-3 border-top mt-auto">
         <div class="container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <div class="row">
                 
-                <div class="text-secondary small d-flex align-items-center gap-2">
-                    <i class="bi bi-c-circle"></i> 2025 - AlmaNotes - Lorenzo Antonioli, Luca Varale Rolla
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none mb-3">
+                        <img src="img/logo.png" alt="Logo" width="40" height="40" class="me-2"/>
+                        <span class="fs-4 fw-bold">AlmaNotes</span>
+                    </a>
                 </div>
 
-                <div class="fs-3">
-                     <img src="img/logo.png" alt="Logo" width="55" height="55"/>
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.php" class="text-decoration-none text-secondary hover-danger">Home</a></li>
+                        <li class="mb-2"><a href="carica.php" class="text-decoration-none text-secondary hover-danger">Carica Appunti</a></li>
+                        <li class="mb-2"><a href="cerca.php" class="text-decoration-none text-secondary hover-danger">Cerca</a></li>
+                        <li class="mb-2"><a href="recensioni.php" class="text-decoration-none text-secondary hover-danger">Recensioni</a></li>
+                        <li class="mb-2"><a href="about.php" class="text-decoration-none text-secondary hover-danger">About</a></li>
+                    </ul>
                 </div>
 
-                <div class="d-flex gap-4 small opacity-50">
-                    <a href="index.php" class="text-decoration-none text-reset">Home</a>
-                    <a href="carica.php" class="text-decoration-none text-reset">Carica</a>
-                    <a href="cerca.php" class="text-decoration-none text-reset">Cerca</a>
-                    <a href="recensioni.php" class="text-decoration-none text-reset">Recensisci</a>
-                    <a href="about.php" class="text-decoration-none text-reset">About</a>
+                <div class="col-lg-4 col-md-12">
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3 d-flex align-items-start">
+                            &copy; 2025 Almanotes | Tutti i diritti riservati.
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-github text-danger me-2"></i>
+                            <a href="https://github.com/Rolla04" class="text-decoration-none text-secondary">Luca Varale Rolla </a>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-github text-danger me-2"></i>
+                            <a href="https://github.com/lolloantonioli" class="text-decoration-none text-secondary">Lorenzo Antonioli</a>
+                        </li>
+                    </ul>
                 </div>
-
-            </div>
         </div>
     </footer>
 </body>
