@@ -1,8 +1,3 @@
-<?php 
-    // Assicurati che $dbh sia inizializzato
-    $listaDati = $dbh->getCorsiProfessori();
-?>
-
 <section class="bg-light d-flex flex-column justify-content-center align-items-center vh-100" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="bg-light bg-opacity-95 rounded-4 shadow-lg p-4 p-sm-5 mx-3" style="max-width: 450px; width: 100%;">
         <div class="w-100 px-3" style="max-width: 400px;">
@@ -58,45 +53,23 @@
     <div class="modal fade" id="modalRicerca" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Seleziona Insegnamento e Docente</h5>
-                <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                
-                <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger" placeholder="Scrivi nome corso o prof..." autocomplete="off">
-
-                <div class="list-group" id="resultsList">
-                    <?php foreach ($listaDati as $riga): ?>
-                        <?php 
-                            $idProf = trim($riga['CodiceProf']);
-                            $idCorso = trim($riga['CodiceCorso']);
-                            $nomeCorso = htmlspecialchars($riga['NomeCorso']);
-                            $nomeProf = htmlspecialchars($riga['NomeProf']);
-                            $nomeCdl = htmlspecialchars($riga['NomeCdl']);
-                            $labelCompleta = $riga['NomeCorso'] . ' - ' . $riga['NomeProf'] . ' (' . $riga['NomeCdl'] . ')';
-                        ?>
-                        
-                        <button type="button" class="list-group-item list-group-item-action btn-selezione" 
-                                data-id-prof="<?php echo $idProf; ?>"
-                                data-id-corso="<?php echo $idCorso; ?>"
-                                data-label="<?php echo htmlspecialchars($labelCompleta); ?>">
-                            
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1 text-danger fw-bold"><?php echo $nomeCorso; ?></h6>
-                                <small class="text-muted"><?php echo $nomeCdl; ?></small>
-                            </div>
-                            <p class="mb-1 small">Prof. <?php echo $nomeProf; ?></p>
-                            
-                            <span class="d-none"><?php echo strtolower($labelCompleta); ?></span>
-                        
-                        </button>
-                    <?php endforeach; ?>
+                <div class="modal-header">
+                    <h5 class="modal-title">Cerca Insegnamento o Docente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                    
+                    <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger" placeholder="Digita almeno 2 caratteri" autocomplete="off" autofocus>
 
-            </div>
+                    <div class="list-group" id="resultsList">
+                        <div class="text-center text-muted mt-3">
+                            <small>Inizia a scrivere per cercare...</small>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-    <script src="../js/search.js"></script>
+<script src="/AlmaNotes/js/search.js"></script>
 </section>

@@ -179,16 +179,6 @@ class Database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * Recupera la lista combinata di Insegnamenti e Professori.
-     * Serve per la ricerca nel modale.
-     */
-    public function getCorsiProfessori() {
-        $stmt = $this->db->prepare("SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, i.Codice AS CodiceCorso, i.Nome AS NomeCorso, c.Nome AS NomeCdl FROM tenere t JOIN professore p ON t.Professore = p.Codice JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice");
-        $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    }
-
     // --- NUOVE FUNZIONI PER LA RICERCA ---
 
     /**
@@ -264,12 +254,12 @@ class Database {
                 A.NomeFile, 
                 A.Utente, 
                 A.Data, -- Data di caricamento
-                MAX(S.Data) AS Data_Download, -- Data ultimo download
+                S.Data AS Data_Download, -- Data ultimo download
                 P.Nome AS Professore, 
                 C.Nome AS Corso_Laurea, 
                 I.Nome AS Insegnamento, 
                 COALESCE(AVG(R.Stelle), 0) AS media_recensioni, 
-                COUNT(R.Stelle) AS numero_recensioni, 
+                COUNT(DISTINCT R.Utente) AS numero_recensioni, 
                 A.Download 
             FROM appunti A 
             JOIN scarica S ON A.Codice = S.Appunti 
@@ -325,5 +315,25 @@ class Database {
         $stmt = $this->db->prepare("REPLACE INTO recensione (Appunti, Utente, Stelle) VALUES (?, ?, ?)");
         $stmt->bind_param("isi", $appunti, $utente, $stelle);
         return $stmt->execute();
+    }
+
+    public function searchCorsiProfessori($testo) {
+        // Cerchiamo match nel nome del corso o del professore
+        $query = "SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, 
+                        i.Codice AS CodiceCorso, i.Nome AS NomeCorso, 
+                        c.Nome AS NomeCdl 
+                FROM tenere t 
+                JOIN professore p ON t.Professore = p.Codice 
+                JOIN insegnamento i ON t.Insegnamento = i.Codice 
+                JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice 
+                WHERE p.Nome LIKE ? OR i.Nome LIKE ? 
+                LIMIT 20";
+                
+        $stmt = $this->db->prepare($query);
+        $searchTerm = "%" . $testo . "%";
+        $stmt->bind_param('ss', $searchTerm, $searchTerm);
+        $stmt->execute();
+        
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 }
