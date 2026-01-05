@@ -23,25 +23,25 @@
         <div class="w-100 px-3" style="max-width: 400px;">
             
             <div class="text-center mb-2">
-                 <img src="img/logo.png" alt="Logo" width="70" height="70"/><h1 class="text-danger fw-bold">Registrati</h1>
+                 <img src="img/logo.png" alt="Logo" width="70" height="70"/><h1 class="text-danger fw-bold mb-4">Registrati</h1>
             </div>
     
             <div class="form-floating mb-2">
-                <input type="text" class="form-control focus-ring focus-ring-danger" id="username" name="username" placeholder="Username" autocomplete="off" required/>
+                <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="username" name="username" placeholder="Username" autocomplete="off" required/>
                 <label for="username">Username</label>
             </div>
     
             <div class="form-floating mb-2">
-                <input type="email" class="form-control focus-ring focus-ring-danger" id="email" name="email" placeholder="name@example.com" autocomplete="off" required/>
+                <input type="email" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="email" name="email" placeholder="name@example.com" autocomplete="off" required/>
                 <label for="email">Email address</label>
             </div>
     
-            <div class="form-floating mb-4">
-                <input type="password" class="form-control focus-ring focus-ring-danger" id="password" name="password" placeholder="Password" autocomplete="off" required/>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="password" name="password" placeholder="Password" autocomplete="off" required/>
                 <label for="password">Password</label>
             </div>
     
-            <p>Sei già registrato? <a href="./login-form.php">Accedi qui</a></p>
+            <p class="mb-3">Sei già registrato? <a href="./login-form.php">Accedi qui</a></p>
     
             <div class="d-grid">
                 <input type="submit" class="btn btn-danger fw-bold py-2 rounded-3 shadow m-0 fs-4" value="Registrati"/>
