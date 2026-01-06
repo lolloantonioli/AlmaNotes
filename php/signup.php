@@ -8,8 +8,8 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["passwor
     $username = trim($_POST['username']);
     // BLOCCO DI SICUREZZA: Nessuno può registrarsi come Admin
     if (strtolower($username) === 'admin') {
-        $templateParams["errore"] = "Username non disponibile o riservato.";
-        require 'template/base.php'; // o ricarica la pagina di signup
+        $templateParams["erroresignup"] = "Username non disponibile o riservato.";
+        require 'signup-form.php';
         exit;
     }
     
