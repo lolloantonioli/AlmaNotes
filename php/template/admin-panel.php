@@ -22,10 +22,15 @@
                             <td><?php echo htmlspecialchars($u['Username']); ?></td>
                             <td><?php echo htmlspecialchars($u['Email']); ?></td>
                             <td>
-                                <form method="POST" onsubmit="return confirm('Sicuro di voler eliminare questo utente?');">
-                                    <input type="hidden" name="delete_user" value="<?php echo $u['Username']; ?>">
-                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </form>
+                            <form method="POST">
+                                <input type="hidden" name="delete_user" value="<?php echo $u['Username']; ?>">
+                                <button type="button" class="btn btn-sm btn-outline-danger" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalConfermaEliminazione"
+                                        onclick="preparaEliminazione(this)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -46,10 +51,15 @@
                             <td><a href="uploads/<?php echo $n['NomeFile']; ?>" target="_blank" class="text-decoration-none">PDF</a></td>
                             <td><?php echo htmlspecialchars($n['Utente']); ?></td>
                             <td>
-                                <form method="POST" onsubmit="return confirm('Eliminare questo appunto e il file PDF?');">
-                                    <input type="hidden" name="delete_note" value="<?php echo $n['Codice']; ?>">
-                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </form>
+                            <form method="POST">
+                                <input type="hidden" name="delete_note" value="<?php echo $n['Codice']; ?>">
+                                <button type="button" class="btn btn-sm btn-outline-danger" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalConfermaEliminazione"
+                                        onclick="preparaEliminazione(this)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -62,3 +72,39 @@
 
     </div>
 </section>
+<div class="modal fade" id="modalConfermaEliminazione" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h2 class="modal-title fw-bold">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Attenzione
+                </h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler procedere con l'eliminazione?<br>
+                <span class="text-danger small">Questa azione è irreversibile.</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-danger fw-bold" id="confirmDeleteBtn">Sì, Elimina</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let formDaInviare = null; // Variabile per ricordare quale form dobbiamo inviare
+
+    function preparaEliminazione(elementoBottone) {
+        // Trova il form genitore del bottone che è stato cliccato
+        formDaInviare = elementoBottone.closest('form');
+    }
+
+    // Quando clicchi "Sì, Elimina" nel modale
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        if (formDaInviare) {
+            formDaInviare.submit(); // Invia il form che avevamo memorizzato
+        }
+    });
+</script>
