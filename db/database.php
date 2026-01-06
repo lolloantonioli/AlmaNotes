@@ -342,13 +342,34 @@ class Database {
     }
 
     public function deleteUser($username) {
+        $stmt = $this->db->prepare("DELETE FROM recensione WHERE Utente = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $stmt->close();
+
+        $stmt = $this->db->prepare("SELECT Codice FROM appunti WHERE Utente = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $notes = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+
+        foreach ($notes as $note) {
+            // Per ogni appunto, usiamo la funzione dedicata che pulisce tutto
+            $this->deleteNote($note['Codice']);
+        }
+
         $stmt = $this->db->prepare("DELETE FROM utente WHERE Username = ?");
         $stmt->bind_param('s', $username);
         return $stmt->execute();
     }
 
     public function deleteNote($codice) {
-        // 1. Recupera il nome del file prima di cancellare la riga dal DB
+
+        $stmt = $this->db->prepare("DELETE FROM recensione WHERE Appunti = ?");
+        $stmt->bind_param('i', $codice);
+        $stmt->execute();
+        $stmt->close();
         $fileInfo = $this->getNoteById($codice);
         
         if ($fileInfo && isset($fileInfo['NomeFile'])) {
@@ -358,9 +379,10 @@ class Database {
             }
         }
 
-        // 2. Cancella la riga dal database
         $stmt = $this->db->prepare("DELETE FROM appunti WHERE Codice = ?");
         $stmt->bind_param('i', $codice);
-        return $stmt->execute();
+        $res = $stmt->execute();
+        $stmt->close();
+        return $res;
     }
 }
