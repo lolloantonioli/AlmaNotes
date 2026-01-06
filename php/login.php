@@ -12,6 +12,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         exit;
     } else {
         registerLoggedUser($login_result[0]);
+        if (isset($login_result[0]['Username']) && strtolower($login_result[0]['Username']) === 'admin') {
+            $_SESSION['admin'] = true;
+        } else {
+            $_SESSION['admin'] = false;
+        }
         header("Location: index.php");
         exit;
     }

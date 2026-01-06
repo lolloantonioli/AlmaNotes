@@ -326,4 +326,41 @@ class Database {
         $stmt->bind_param("isi", $appunti, $utente, $stelle);
         return $stmt->execute();
     }
+
+
+    public function getUsersForAdmin() {
+        $stmt = $this->db->prepare("SELECT Username, Email FROM utente");
+        $stmt->execute();
+        
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllNotes() {
+        $stmt = $this->db->prepare("SELECT Codice, Nome, NomeFile, Utente, Data FROM appunti ORDER BY Data DESC");
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteUser($username) {
+        $stmt = $this->db->prepare("DELETE FROM utente WHERE Username = ?");
+        $stmt->bind_param('s', $username);
+        return $stmt->execute();
+    }
+
+    public function deleteNote($codice) {
+        // 1. Recupera il nome del file prima di cancellare la riga dal DB
+        $fileInfo = $this->getNoteById($codice);
+        
+        if ($fileInfo && isset($fileInfo['NomeFile'])) {
+            $filePath = "./uploads/" . $fileInfo['NomeFile'];
+            if (file_exists($filePath)) {
+                unlink($filePath); // Cancella il file dalla cartella
+            }
+        }
+
+        // 2. Cancella la riga dal database
+        $stmt = $this->db->prepare("DELETE FROM appunti WHERE Codice = ?");
+        $stmt->bind_param('i', $codice);
+        return $stmt->execute();
+    }
 }

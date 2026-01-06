@@ -73,6 +73,15 @@
                                 </a>
                             </li>
 
+                            <?php if(isset($_SESSION['username']) && strtolower($_SESSION['username']) === 'admin'): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("admin.php");?>" 
+                                    href="admin.php">
+                                    <i class="bi bi-shield-lock-fill me-2"></i>Pannello Admin
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+
                         </ul>
                     </div>
                 </div>
@@ -121,6 +130,14 @@
                         <li class="mb-2"><a href="cerca.php" class="text-decoration-none text-secondary hover-danger">Cerca</a></li>
                         <li class="mb-2"><a href="recensioni.php" class="text-decoration-none text-secondary hover-danger">Recensioni</a></li>
                         <li class="mb-2"><a href="about.php" class="text-decoration-none text-secondary hover-danger">About</a></li>
+                        <?php if(isset($_SESSION['username']) && strtolower($_SESSION['username']) === 'admin'): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger fw-bold link-offset-2 link-underline link-underline-danger link-underline-opacity-0 link-underline-opacity-100-hover px-3 <?php isActive("admin.php");?>" 
+                                    href="admin.php">
+                                    <i class="bi bi-shield-lock-fill me-2"></i>Pannello Admin
+                                    </a>
+                                </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
 

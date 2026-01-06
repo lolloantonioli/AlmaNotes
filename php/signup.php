@@ -5,6 +5,14 @@ if (isUserLoggedIn()) {
     exit;
 }
 if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
+    $username = trim($_POST['username']);
+    // BLOCCO DI SICUREZZA: Nessuno può registrarsi come Admin
+    if (strtolower($username) === 'admin') {
+        $templateParams["errore"] = "Username non disponibile o riservato.";
+        require 'template/base.php'; // o ricarica la pagina di signup
+        exit;
+    }
+    
     $signup_result = $dbh->insertUser($_POST["username"], $_POST["email"], $_POST["password"]);
     if ($signup_result == true) {
         //registrazione avvenuta con successo
