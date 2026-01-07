@@ -385,4 +385,18 @@ class Database {
         $stmt->close();
         return $res;
     }
+
+    public function updateNoteName($idAppunto, $nuovoNome, $username) {
+        $stmt = $this->db->prepare("UPDATE appunti SET Nome = ? WHERE Codice = ? AND Utente = ?");
+        $stmt->bind_param("sis", $nuovoNome, $idAppunto, $username);
+        return $stmt->execute();
+    }
+
+    public function deleteNotefromUser($idAppunto, $username) {
+        // Nota: Assicurati che il DB sia impostato con ON DELETE CASCADE sulle tabelle collegate 
+        // (es. recensioni, scarica), altrimenti dovrai cancellare prima quelle righe.
+        $stmt = $this->db->prepare("DELETE FROM appunti WHERE Codice = ? AND Utente = ?");
+        $stmt->bind_param("is", $idAppunto, $username);
+        return $stmt->execute();
+    }
 }

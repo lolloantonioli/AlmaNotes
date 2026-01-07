@@ -15,7 +15,7 @@
         <div class="tab-pane fade show active" id="users">
             <div class="table-responsive bg-white rounded shadow p-3">
                 <table class="table table-hover align-middle">
-                    <th><tr><th>Username</th><th>Email</th><th>Elimina</th></tr></th>
+                    <thead><tr><th>Username</th><th>Email</th><th>Elimina</th></tr></thead>
                     <tbody>
                     <?php foreach($templateParams["users"] as $u): ?>
                         <tr>
