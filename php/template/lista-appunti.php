@@ -1,27 +1,32 @@
-<div class="text-white container-fluid py-5 text-center position-relative z-1" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center;">
-    <h1 class="display-5 fw-bold mt-5 mb-3">Gli appunti giusti per ogni esame</h1>
-    <p class="lead mb-4 fw-light">
-        Trova e condividi appunti specifici per ogni insegnamento e professore dell'UniBo
-    </p>
-    
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-8 col-lg-8">
-            <form action="cerca.php" method="GET" class="d-flex mb-5 mt-3">
-                <input type="text" name="q" class="form-control form-control-lg focus-ring focus-ring-danger rounded-start-pill border-0 px-4" placeholder="Cerca per esame, professore o argomento" autocomplete="off" value="<?php echo htmlspecialchars($templateParams["search_text"] ?? ''); ?>">
-                <button type="submit" class="btn btn-dark rounded-end-pill px-4 fw-bold">CERCA</button>
+<div class="container-fluid py-5 text-center position-relative overflow-hidden">
+    <img src="img/sfondo.jpg" alt="Immagine di sfondo" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true"/>
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    <div class="position-relative z-1 text-white">
+        <h1 class="display-5 fw-bold mt-5 mb-3">Gli appunti giusti per ogni esame</h1>
+        <p class="lead mb-4 fw-light">Trova e condividi appunti specifici per ogni insegnamento e professore dell'UniBo</p>
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-11 col-lg-8">
+                <form action="cerca.php" method="GET" class="d-flex mb-5 mt-3">
+                    <label for="search-input" class="visually-hidden">Cerca per esame, professore o argomento</label>
+                    <input type="search" id="search-input" name="q" class="form-control form-control-lg focus-ring focus-ring-danger rounded-start-pill border-0 px-4" placeholder="Cerca per esame, professore o argomento" autocomplete="off" value="<?php echo htmlspecialchars($templateParams['search_text'] ?? ''); ?>"/>
+                    <button type="submit" class="btn btn-dark rounded-end-pill px-4 fw-bold">CERCA</button>
 
-                <?php if(!empty($templateParams["selected_prof"])): ?>
-                    <input type="hidden" name="prof" value="<?php echo htmlspecialchars($templateParams["selected_prof"]); ?>">
-                <?php endif; ?>
-                <?php if(!empty($templateParams["selected_subject"])): ?>
-                    <input type="hidden" name="subject" value="<?php echo htmlspecialchars($templateParams["selected_subject"]); ?>">
-                <?php endif; ?>
-            </form>
+                    <?php if(!empty($templateParams['selected_prof'])): ?>
+                        <input type="hidden" name="prof"
+                               value="<?php echo htmlspecialchars($templateParams['selected_prof']); ?>">
+                    <?php endif; ?>
+
+                    <?php if(!empty($templateParams['selected_subject'])): ?>
+                        <input type="hidden" name="subject"
+                               value="<?php echo htmlspecialchars($templateParams['selected_subject']); ?>">
+                    <?php endif; ?>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
-<main class="container py-5">
+<div class="container py-5">
     <div class="row g-5">
         
         <div class="col-12 col-lg-6">
@@ -91,4 +96,4 @@
         </div>
 
     </div>
-</main>
+</div>

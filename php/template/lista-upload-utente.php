@@ -1,4 +1,4 @@
-<main class="container py-5">
+<div class="container py-5">
     <div class="row g-5">
         <div class="col-12">
             <div class="d-flex align-items-center mb-4 gap-3">
@@ -45,14 +45,15 @@
                                     data-bs-target="#renameModal"
                                     data-id="<?php echo $appunto["Codice"]; ?>"
                                     data-name="<?php echo htmlspecialchars($appunto["Nome"]); ?>">
-                                <i class="bi bi-pencil-square me-2"></i> Modifica
+                                <i class="bi bi-pencil-square me-2"></i>Modifica
                             </button>
                             
-                            <button class="btn btn-link text-decoration-none text-danger w-50 py-2 fw-semibold small"
+                            <button class="btn btn-link text-decoration-none w-50 py-2 fw-semibold small"
                                     data-bs-toggle="modal" 
                                     data-bs-target="#deleteModal"
-                                    data-id="<?php echo $appunto["Codice"]; ?>">
-                                <i class="bi bi-trash me-2"></i> Elimina
+                                    data-id="<?php echo $appunto["Codice"]; ?>"
+                                    style="color: #BB2E29">
+                                <i class="bi bi-trash me-2"></i>Elimina
                             </button>
                         </div>
 
@@ -61,14 +62,10 @@
                 </div>
             <?php endif; ?>
             
-            <div class="mt-4">
-                <a href="profilo.php" class="btn btn-outline-danger rounded-pill px-4 fw-bold">
-                    <i class="bi bi-arrow-left me-2"></i> Torna al profilo
-                </a>
-            </div>
+            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3" style="background-color: #BB2E29; color: white;">Torna al profilo</a>
         </div>
     </div>
-</main>
+</div>
 
 <div class="modal fade" id="renameModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

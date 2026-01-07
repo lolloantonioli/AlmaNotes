@@ -1,5 +1,4 @@
-<main class="container py-5">
-    <!-- Flash Message -->
+<div class="container py-5">
     <?php if(isset($_SESSION['flash_message'])): ?>
     <div class="alert alert-<?php echo $_SESSION['flash_type'] === 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show mb-4" role="alert">
         <strong><?php echo $_SESSION['flash_type'] === 'success' ? '✓' : '✕'; ?></strong> <?php echo $_SESSION['flash_message']; ?>
@@ -43,8 +42,8 @@
             <?php endif; ?>
         </div>
     </div>
-</main>
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-bs-backdrop="false">
+</div>
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">

@@ -1,4 +1,4 @@
-<main class="container py-5">
+<div class="container py-5">
     <div class="row g-5">
         
         <div class="col-12 col-lg-8 mx-auto"> 
@@ -52,12 +52,12 @@
             </div>
             
             <div class="d-flex justify-content-end user-select-none" style="width: 50px;">
-                <i id="toggle-password-icon" class="bi bi-eye fs-4" style="cursor: pointer;" onclick="togglePassword()"></i>
+                <i id="toggle-password-icon" class="bi bi-eye fs-4" style="cursor: pointer;" tabindex="0" role="button" aria-label="Mostra/Nascondi password"></i>
             </div>
         </div>
     </div>
 
-</div>
+    </div>
         </div>
         
         <div class="col-12 col-lg-6">
@@ -189,12 +189,12 @@
             </div>
         </div>
         <div class="col-12 text-center mt-5 mb-3">
-            <button type="button" class="btn btn-outline-danger btn-lg px-5 rounded-pill fw-bold shadow" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                <i class="bi bi-box-arrow-right me-2"></i>Esci dal Profilo
+            <button type="button" class="btn btn-lg px-5 fw-bold shadow" style="background-color: #BB2E29; color: white;" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                <i class="bi bi-box-arrow-right me-2"></i>Logout
             </button>
         </div>
     </div>
-</main>
+</div>
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
@@ -218,30 +218,26 @@
     </div>
 </div>
 <script>
-function togglePassword() {
-    // 1. Prendi i riferimenti agli elementi
-    const passwordText = document.getElementById('password-text');
-    const toggleIcon = document.getElementById('toggle-password-icon');
-    
-    // 2. Leggi la password reale salvata nell'attributo
-    const realPassword = passwordText.getAttribute('data-password');
-    const maskedPassword = "••••••••"; // O qualsiasi stringa di mascheramento vuoi
+const toggleIcon = document.getElementById('toggle-password-icon');
+const passwordText = document.getElementById('password-text');
+const maskedPassword = "••••••••";
 
-    // 3. Controlla lo stato attuale e scambia
+function togglePassword() {
+    const realPassword = passwordText.getAttribute('data-password');
     if (passwordText.innerText === maskedPassword) {
-        // MOSTRA: Sostituisci i pallini con la password vera
         passwordText.innerText = realPassword;
-        
-        // Cambia l'icona in "occhio barrato" (opzionale, ma carino)
-        toggleIcon.classList.remove('bi-eye');
-        toggleIcon.classList.add('bi-eye-slash');
+        toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
     } else {
-        // NASCONDI: Rimetti i pallini
         passwordText.innerText = maskedPassword;
-        
-        // Ripristina l'icona "occhio aperto"
-        toggleIcon.classList.remove('bi-eye-slash');
-        toggleIcon.classList.add('bi-eye');
+        toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
     }
 }
+
+toggleIcon.addEventListener('click', togglePassword);
+toggleIcon.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // previene scroll con Space
+        togglePassword();
+    }
+});
 </script>

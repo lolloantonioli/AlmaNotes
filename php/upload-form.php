@@ -25,33 +25,30 @@
             <?php endif; ?>
             
             <form action="inserimento-appunti.php" method="POST" enctype="multipart/form-data">
-
                 <input type="hidden" name="professore" id="hiddenProfessore" required>
                 <input type="hidden" name="insegnamento" id="hiddenInsegnamento" required>
 
                 <div class="mb-3">
-                    <label class="form-label">Corso e Professore</label>
+                    <label for="displayScelta" class="form-label">Corso e Professore</label>
                     <div class="input-group">
                         <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
-                        <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalRicerca">
-                            <i class="bi bi-search"></i> Cerca
-                        </button>
                     </div>
+
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" name="nome" id="floatingInput" placeholder="appunti" autocomplete="off" required/>
-                    <label for="floatingInput">Nome File</label>
+                    <label for="nomeFileInput">Nome File</label>
+                    <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" name="nome" id="nomeFileInput" placeholder="Nome File" autocomplete="off" required>
                 </div>
-        
+
                 <div class="mb-4">
+                    <label for="formFile" class="form-label visually-hidden">Seleziona File PDF</label>
                     <input class="form-control focus-ring focus-ring-danger border border-danger-subtle" type="file" name="file" id="formFile" accept=".pdf" required>
                 </div>
 
                 <div class="d-grid">
                     <button type="submit" class="btn btn-danger fw-bold py-2 rounded-3 shadow m-0 fs-4">Carica</button>
                 </div>
-        
             </form>
         </div>
     </div>
@@ -64,13 +61,11 @@
                     <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+                    <label for="searchInput" class="visually-hidden">Cerca corso o professore</label>
                     <input type="text" id="searchInput" class="form-control mb-3 focus-ring focus-ring-danger border border-danger-subtle" placeholder="Scrivi nome corso o prof..." autocomplete="off">
-
                     <div class="list-group" id="resultsList">
                         <div class="text-center text-muted small mt-2">Inizia a scrivere per cercare...</div>
                     </div>
-
                 </div>
             </div>
         </div>

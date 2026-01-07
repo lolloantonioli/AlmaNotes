@@ -1,4 +1,4 @@
-<main class="container py-5">
+<div class="container py-5">
     <div class="row g-5">
         <div class="col-12">
             <div class="d-flex align-items-center mb-4 gap-3">
@@ -42,11 +42,8 @@
                 </div>
             <?php endif; ?>
             
-            <div class="mt-4">
-                <a href="profilo.php" class="btn btn-outline-danger rounded-pill px-4 fw-bold">
-                    <i class="bi bi-arrow-left me-2"></i> Torna al profilo
-                </a>
-            </div>
+            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3" style="background-color: #BB2E29; color: white;">Torna al profilo</a>
+
         </div>
     </div>
-</main>
+</div>

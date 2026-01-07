@@ -1,12 +1,17 @@
-<div class="text-white py-5 mb-4 shadow-sm" style="background-image: url('img/sfondo.jpg'); background-size: cover;">
-    <div class="container text-center">
+<div class="position-relative text-white py-5 mb-4 shadow-sm">
+    <img src="img/sfondo.jpg" alt="Immagine di sfondo" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
+    
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    
+    <div class="container text-center position-relative z-1">
         <h1 class="display-5 fw-bold mb-3">Cerca i tuoi appunti</h1>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-11 col-md-11 col-lg-8">
                 <form action="cerca.php" method="GET" class="d-flex">
-                    <input type="text" name="q" class="form-control form-control-lg focus-ring focus-ring-danger rounded-start-pill border-0 px-4" autocomplete="off" placeholder="Cosa stai cercando?" value="<?php echo htmlspecialchars($templateParams["search_text"]); ?>">
+                    <label for="search-input" class="visually-hidden">Cerca per esame, professore o argomento</label>
+                    <input type="text" name="q" id="search-input" class="form-control form-control-lg focus-ring focus-ring-danger rounded-start-pill border-0 px-4" autocomplete="off" placeholder="Cosa stai cercando?" value="<?php echo htmlspecialchars($templateParams["search_text"] ?? ''); ?>">
                     <button type="submit" class="btn btn-dark rounded-end-pill px-4 fw-bold">CERCA</button>
-                    
+
                     <?php if(!empty($templateParams["selected_prof"])): ?>
                         <input type="hidden" name="prof" value="<?php echo htmlspecialchars($templateParams["selected_prof"]); ?>">
                     <?php endif; ?>
@@ -198,12 +203,11 @@
     </div>
 </div>
 
-<!-- Modal Filtri -->
 <div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">
-                <h1 class="modal-title fs-5 fw-bold text-danger" id="filtersModalLabel"><i class="bi bi-funnel me-2"></i>Seleziona Filtri</h1>
+                <h1 class="modal-title fs-5 fw-bold" id="filtersModalLabel" style="color: #BB2E29;"><i class="bi bi-funnel me-2"></i>Seleziona Filtri</h1>
                 <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -211,8 +215,8 @@
                     <input type="hidden" name="q" value="<?php echo htmlspecialchars($templateParams["search_text"]); ?>">
                     
                     <div class="mb-4">
-                        <label class="form-label fw-semibold small text-uppercase text-muted">Materia</label>
-                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="subject">
+                        <label for="filter-subject" class="form-label fw-semibold small text-uppercase text-muted">Materia</label>
+                        <select id="filter-subject" class="form-select focus-ring focus-ring-danger bg-light border-0" name="subject">
                             <option value="">Tutte le materie</option>
                             <?php foreach($templateParams["filtri_materie"] as $mat): ?>
                                 <option value="<?php echo $mat['Codice']; ?>" <?php echo ($templateParams["selected_subject"] == $mat['Codice']) ? 'selected' : ''; ?>>
@@ -223,8 +227,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-semibold small text-uppercase text-muted">Professore</label>
-                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="prof">
+                        <label for="filter-prof" class="form-label fw-semibold small text-uppercase text-muted">Professore</label>
+                        <select id="filter-prof" class="form-select focus-ring focus-ring-danger bg-light border-0" name="prof">
                             <option value="">Tutti i professori</option>
                             <?php foreach($templateParams["filtri_prof"] as $prof): ?>
                                 <option value="<?php echo $prof['Codice']; ?>" <?php echo ($templateParams["selected_prof"] == $prof['Codice']) ? 'selected' : ''; ?>>
@@ -235,8 +239,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-semibold small text-uppercase text-muted">Corso di Laurea</label>
-                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="course">
+                        <label for="filter-course" class="form-label fw-semibold small text-uppercase text-muted">Corso di Laurea</label>
+                        <select id="filter-course" class="form-select focus-ring focus-ring-danger bg-light border-0" name="course">
                             <option value="">Tutti i corsi</option>
                             <?php foreach($templateParams["filtri_corsi"] as $corso): ?>
                                 <option value="<?php echo htmlspecialchars($corso['Nome']); ?>" <?php echo ($templateParams["selected_course"] == $corso['Nome']) ? 'selected' : ''; ?>>
@@ -247,8 +251,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-semibold small text-uppercase text-muted">Utente</label>
-                        <select class="form-select focus-ring focus-ring-danger bg-light border-0" name="user">
+                        <label for="filter-user" class="form-label fw-semibold small text-uppercase text-muted">Utente</label>
+                        <select id="filter-user" class="form-select focus-ring focus-ring-danger bg-light border-0" name="user">
                             <option value="">Tutti gli utenti</option>
                             <?php foreach($templateParams["filtri_utenti"] as $utente): ?>
                                 <option value="<?php echo htmlspecialchars($utente['Utente']); ?>" <?php echo ($templateParams["selected_user"] == $utente['Utente']) ? 'selected' : ''; ?>>
@@ -269,8 +273,3 @@
         </div>
     </div>
 </div>
-<style>
-/* Piccola animazione per le card */
-.transition-up { transition: transform 0.2s; }
-.transition-up:hover { transform: translateY(-5px); }
-</style>
