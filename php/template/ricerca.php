@@ -1,5 +1,5 @@
 <div class="position-relative text-white py-5 mb-4 shadow-sm">
-    <img src="img/sfondo.jpg" alt="Immagine di sfondo" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
+    <img src="img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
     
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
     
