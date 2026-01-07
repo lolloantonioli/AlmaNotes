@@ -45,7 +45,7 @@
     <span class="badge d-flex align-items-center p-2 ps-3 fs-6 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-pill">
         Materia: <?php echo htmlspecialchars($filtroMateria ? $filtroMateria['Nome'] : ''); ?>
         <span class="vr mx-2"></span>
-        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger" style="text-decoration: none;">✕</a>
+        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger text-decoration-none">✕</a>
     </span>
     <?php endif; ?>
 
@@ -61,7 +61,7 @@
     <span class="badge d-flex align-items-center p-2 ps-3 fs-6 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-pill">
         Prof: <?php echo htmlspecialchars($filtroProf ? $filtroProf['Nome'] : ''); ?>
         <span class="vr mx-2"></span>
-        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger" style="text-decoration: none;">✕</a>
+        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger text-decoration-none">✕</a>
     </span>
     <?php endif; ?>
 
@@ -69,7 +69,7 @@
     <span class="badge d-flex align-items-center p-2 ps-3 fs-6 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-pill">
         Corso: <?php echo htmlspecialchars($templateParams["selected_course"]); ?>
         <span class="vr mx-2"></span>
-        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger" style="text-decoration: none;">✕</a>
+        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>" class="text-danger text-decoration-none">✕</a>
     </span>
     <?php endif; ?>
 
@@ -77,7 +77,7 @@
     <span class="badge d-flex align-items-center p-2 ps-3 fs-6 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-pill">
         Utente: <?php echo htmlspecialchars($templateParams["selected_user"]); ?>
         <span class="vr mx-2"></span>
-        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>" class="text-danger" style="text-decoration: none;">✕</a>
+        <a href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>" class="text-danger text-decoration-none">✕</a>
     </span>
     <?php endif; ?>
 </div>
