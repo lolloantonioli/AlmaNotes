@@ -1,14 +1,8 @@
 <?php
 function isActive($pageName){
     if(basename($_SERVER['PHP_SELF'])==$pageName){
-        // AGGIUNTO: link-underline-opacity-100
-        // Questo vince sullo "0" messo nell'HTML e rende la riga visibile
         echo ' active fw-bold'; 
     }
-}
-
-function getIdFromName($name){
-    return preg_replace("/[^a-z]/", '', strtolower($name));
 }
 
 function isUserLoggedIn(){
@@ -18,23 +12,4 @@ function isUserLoggedIn(){
 function registerLoggedUser($user){
     $_SESSION["username"] = $user["Username"];
 }
-
-function getAction($action){
-    $result = "";
-    switch($action){
-        case 1:
-            $result = "Inserisci";
-            break;
-        case 2:
-            $result = "Modifica";
-            break;
-        case 3:
-            $result = "Cancella";
-            break;
-    }
-
-    return $result;
-}
-
-
 ?>

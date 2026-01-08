@@ -1,5 +1,4 @@
 <?php 
-    // Assicurati che $dbh sia inizializzato
     $listaDati = $dbh->getCorsiProfessori();
     $jsonDati = json_encode($listaDati);
 ?>
@@ -37,17 +36,17 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <label for="nomeFileInput">Nome File</label>
                     <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" name="nome" id="nomeFileInput" placeholder="Nome File" autocomplete="off" required>
+                    <label for="nomeFileInput">Nome File</label>
                 </div>
 
                 <div class="mb-4">
-                    <label for="formFile" class="form-label visually-hidden">Seleziona File PDF</label>
                     <input class="form-control focus-ring focus-ring-danger border border-danger-subtle" type="file" name="file" id="formFile" accept=".pdf" required>
+                    <label for="formFile" class="form-label visually-hidden">Seleziona File PDF</label>
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-danger fw-bold py-2 rounded-3 shadow m-0 fs-4">Carica</button>
+                    <button type="submit" class="btn fw-bold py-2 rounded-3 shadow m-0 fs-4" style="background-color: #BB2E29; color: white;">Carica</button>
                 </div>
             </form>
         </div>

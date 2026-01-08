@@ -1,6 +1,5 @@
 <?php
 session_start();
-define("UPLOAD_DIR", "./uploads/");
 require_once("utils/functions.php");
 require_once("../db/database.php");
 $dbh = new Database("127.0.0.1", "root", "", "almanotes", "3306");
