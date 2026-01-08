@@ -8,13 +8,11 @@ if (empty($_SESSION['username'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 1. Recupero input con TRIM (Sicurezza contro gli spazi invisibili)
     $nomeAppunto = trim($_POST['nome']);
     $idProfessore = trim($_POST['professore']); 
-    $idInsegnamento = trim($_POST['insegnamento']); // Usato solo per controllo
+    $idInsegnamento = trim($_POST['insegnamento']);
     $utente = $_SESSION['username'];
 
-    // 2. Controllo File
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
         
         $fileTmpPath = $_FILES['file']['tmp_name'];
@@ -25,11 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($mimeType === 'application/pdf') {
             
-            // Genera nome unico pulito
+            // Genera nome unico
             $cleanFileName = preg_replace('/[^A-Za-z0-9_\-]/', '_', pathinfo($fileName, PATHINFO_FILENAME));
             $newFileName = uniqid() . "_" . $cleanFileName . ".pdf";
 
-            // Cartella uploads
             $uploadDir = './uploads/'; 
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
@@ -39,8 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (move_uploaded_file($fileTmpPath, $destPath)) {
                 
-                // 3. CHIAMATA AL DB: Passiamo 5 parametri
-                // Nota: $newFileName è una stringa (il percorso), non il file binario
                 $result = $dbh->insertNote($nomeAppunto, $idProfessore, $idInsegnamento, $newFileName, $utente);
 
                 if ($result) {
@@ -49,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header('Location: carica.php');
                     exit;
                 } else {
-                    // Se fallisce il DB, cancelliamo il file caricato per non occupare spazio inutile
                     if (file_exists($destPath)) unlink($destPath);
                     $_SESSION['flash_message'] = 'Errore nel database. Riprova.';
                     $_SESSION['flash_type'] = 'error';

@@ -9,7 +9,6 @@ if (empty($_SESSION['username'])) {
 $utente = $_SESSION['username'];
 $downloadedFiles = $dbh->getAllDownloadedFiles($utente);
 
-//Base Template
 $templateParams["titolo"] = "Almanotes - Recensisci";
 $templateParams["nome"] = "lista-recensioni.php";
 

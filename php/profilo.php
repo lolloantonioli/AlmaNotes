@@ -1,7 +1,6 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base template
 $templateParams["titolo"] = "AlmaNotes - Profilo";
 $templateParams["nome"] = "dati-profilo.php";
 

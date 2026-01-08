@@ -1,11 +1,9 @@
-// Review Modal Handler
 document.addEventListener('DOMContentLoaded', function() {
     const reviewModal = document.getElementById('reviewModal');
     let selectedStars = 0;
     let currentAppunti = 0;
     
     if (reviewModal) {
-        // Populate modal when opened
         reviewModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
             document.getElementById('modalFileName').textContent = button.getAttribute('data-file-name');
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
             currentAppunti = button.getAttribute('data-file-codice');
             selectedStars = 0;
             
-            // Reset stars UI
             const starBtns = document.querySelectorAll('.star-btn');
             starBtns.forEach(btn => {
                 btn.classList.remove('selected');
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('submitReviewBtn').disabled = true;
         });
         
-        // Handle star selection - attach to modal for delegation
         reviewModal.addEventListener('click', function(e) {
             if (e.target.classList.contains('star-btn')) {
                 selectedStars = parseInt(e.target.getAttribute('data-star'));
@@ -31,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Submit review
         document.getElementById('submitReviewBtn').addEventListener('click', function () {
             if (selectedStars === 0 || currentAppunti === 0) return;
             
@@ -58,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const modal = bootstrap.Modal.getInstance(reviewModal);
                     modal.hide();
                     
-                    // Reload to see flash message
                     setTimeout(() => {
                         window.location.reload();
                     }, 300);

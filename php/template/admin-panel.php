@@ -112,17 +112,15 @@
 </div>
 
 <script>
-    let formDaInviare = null; // Variabile per ricordare quale form dobbiamo inviare
+    let formDaInviare = null;
 
     function preparaEliminazione(elementoBottone) {
-        // Trova il form genitore del bottone che è stato cliccato
         formDaInviare = elementoBottone.closest('form');
     }
 
-    // Quando clicchi "Sì, Elimina" nel modale
     document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
         if (formDaInviare) {
-            formDaInviare.submit(); // Invia il form che avevamo memorizzato
+            formDaInviare.submit();
         }
     });
 </script>

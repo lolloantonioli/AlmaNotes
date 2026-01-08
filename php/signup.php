@@ -6,7 +6,6 @@ if (isUserLoggedIn()) {
 }
 if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
     $username = trim($_POST['username']);
-    // BLOCCO DI SICUREZZA: Nessuno può registrarsi come Admin
     if (strtolower($username) === 'admin') {
         $templateParams["erroresignup"] = "Username non disponibile o riservato.";
         require 'signup-form.php';
@@ -15,7 +14,6 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["passwor
     
     $signup_result = $dbh->insertUser($_POST["username"], $_POST["email"], $_POST["password"]);
     if ($signup_result == true) {
-        //registrazione avvenuta con successo
         $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
         if (count($login_result) > 0) {
             registerLoggedUser($login_result[0]);
@@ -27,7 +25,6 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["passwor
             exit;
         }
     } else {
-        //registrazione fallita
         $templateParams["erroresignup"] = "Errore! Controllare i dati inseriti";
         require 'signup-form.php';
         exit;

@@ -179,23 +179,13 @@ class Database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * Recupera la lista combinata di Insegnamenti e Professori.
-     * Serve per la ricerca nel modale.
-     */
     public function getCorsiProfessori() {
         $stmt = $this->db->prepare("SELECT p.Codice AS CodiceProf, p.Nome AS NomeProf, i.Codice AS CodiceCorso, i.Nome AS NomeCorso, c.Nome AS NomeCdl FROM tenere t JOIN professore p ON t.Professore = p.Codice JOIN insegnamento i ON t.Insegnamento = i.Codice JOIN corso_di_laurea c ON i.Corso_di_laurea = c.Codice");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    // --- NUOVE FUNZIONI PER LA RICERCA ---
-
-    /**
-     * Cerca appunti in base al testo e ai filtri opzionali
-     */
     public function searchNotes($text, $prof = null, $subject = null) {
-        // Query di base
         $sql = "SELECT a.Codice, a.Nome, a.NomeFile, a.Download, a.Data, a.Utente, 
                        p.Nome AS Professore, c.Nome AS Corso_Laurea, i.Nome AS Insegnamento, 
                        COALESCE(AVG(r.Stelle), 0) AS media_recensioni, COUNT(r.Stelle) AS numero_recensioni
@@ -241,17 +231,11 @@ class Database {
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * Ottiene tutti i professori per il filtro
-     */
     public function getAllProfessors() {
         $result = $this->db->query("SELECT Codice, Nome FROM professore ORDER BY Nome");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * Ottiene tutte le materie per il filtro
-     */
     public function getAllSubjects() {
         $result = $this->db->query("SELECT Codice, Nome FROM insegnamento ORDER BY Nome");
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -355,7 +339,6 @@ class Database {
         $stmt->close();
 
         foreach ($notes as $note) {
-            // Per ogni appunto, usiamo la funzione dedicata che pulisce tutto
             $this->deleteNote($note['Codice']);
         }
 
@@ -393,8 +376,6 @@ class Database {
     }
 
     public function deleteNotefromUser($idAppunto, $username) {
-        // Nota: Assicurati che il DB sia impostato con ON DELETE CASCADE sulle tabelle collegate 
-        // (es. recensioni, scarica), altrimenti dovrai cancellare prima quelle righe.
         $stmt = $this->db->prepare("DELETE FROM appunti WHERE Codice = ? AND Utente = ?");
         $stmt->bind_param("is", $idAppunto, $username);
         return $stmt->execute();
