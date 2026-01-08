@@ -97,7 +97,7 @@
     </main>
     <?php if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' && basename($_SERVER['PHP_SELF']) !== 'carica.php' && basename($_SERVER['PHP_SELF']) !== 'admin.php'): ?>
         <section class="text-white py-5 text-center position-relative overflow-hidden">
-            <img src="img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true"/>
+            <img src="../img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true"/>
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 user-select-none"></div>
             <div class="container position-relative z-1 py-4">
                 <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>

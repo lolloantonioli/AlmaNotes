@@ -1,5 +1,5 @@
 <div class="position-relative text-white container-fluid py-5 text-center overflow-hidden">
-    <img src="img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
+    <img src="../img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
     <div class="position-relative z-1">
         <h1 class="display-5 fw-bold mb-3">About AlmaNotes</h1>
