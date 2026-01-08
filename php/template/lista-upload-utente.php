@@ -83,7 +83,7 @@
                     </div>
                     <div class="d-flex justify-content-end gap-2">
                         <button type="button" class="btn btn-light rounded-pill px-3" data-bs-dismiss="modal">Annulla</button>
-                        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Salva</button>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4 fw-bold">Salva</button>
                     </div>
                 </form>
             </div>
