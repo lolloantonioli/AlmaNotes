@@ -40,7 +40,7 @@
                         </a>
 
                         <div class="d-flex border-top border-danger-subtle bg-light">
-                            <button class="btn btn-link border-end text-decoration-none text-dark w-50 py-2 fw-semibold small"
+                            <button class="border-0 border-end text-dark w-50 py-2 fw-semibold small"
                                     data-bs-toggle="modal" 
                                     data-bs-target="#renameModal"
                                     data-id="<?php echo $appunto["Codice"]; ?>"
@@ -48,11 +48,10 @@
                                 <i class="bi bi-pencil-square me-2"></i>Modifica
                             </button>
                             
-                            <button class="btn btn-link text-decoration-none w-50 py-2 fw-semibold small"
+                            <button class="border-0 w-50 py-2 fw-semibold small red-btn"
                                     data-bs-toggle="modal" 
                                     data-bs-target="#deleteModal"
-                                    data-id="<?php echo $appunto["Codice"]; ?>"
-                                    style="color: #BB2E29">
+                                    data-id="<?php echo $appunto["Codice"]; ?>">
                                 <i class="bi bi-trash me-2"></i>Elimina
                             </button>
                         </div>
@@ -62,7 +61,7 @@
                 </div>
             <?php endif; ?>
             
-            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3" style="background-color: #BB2E29; color: white;">Torna al profilo</a>
+            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3 red-input">Torna al profilo</a>
         </div>
     </div>
 </div>

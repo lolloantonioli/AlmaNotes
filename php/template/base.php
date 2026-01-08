@@ -39,35 +39,35 @@
                         <ul class="navbar-nav justify-content-left flex-grow-1 pe-3 gap-lg-4">
                             
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("index.php");?>" 
+                                <a class="nav-link link-offset-2 px-3 <?php isActive("index.php");?>" 
                                 href="index.php">
                                 <i class="bi bi-house-door me-2"></i>Home
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("cerca.php");?>" 
+                                <a class="nav-link link-offset-2 px-3 <?php isActive("cerca.php");?>" 
                                 href="cerca.php">
                                 <i class="bi bi-search me-2"></i>Cerca
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("carica.php");?>" 
+                                <a class="nav-link link-offset-2 px-3 <?php isActive("carica.php");?>" 
                                 href="carica.php">
                                 <i class="bi bi-cloud-upload me-2"></i>Carica
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("recensioni.php");?>" 
+                                <a class="nav-link link-offset-2 px-3 <?php isActive("recensioni.php");?>" 
                                 href="recensioni.php">
                                 <i class="bi bi-star me-2"></i>Recensisci
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("about.php");?>" 
+                                <a class="nav-link link-offset-2 px-3 <?php isActive("about.php");?>" 
                                 href="about.php">
                                 <i class="bi bi-info-circle me-2"></i>About
                                 </a>
@@ -75,7 +75,7 @@
 
                             <?php if(isset($_SESSION['username']) && strtolower($_SESSION['username']) === 'admin'): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link text-danger link-offset-2 px-3 <?php isActive("admin.php");?>" 
+                                    <a class="nav-link link-offset-2 px-3 <?php isActive("admin.php");?>" 
                                     href="admin.php">
                                     <i class="bi bi-shield-lock me-2"></i>Pannello Admin
                                     </a>
@@ -98,11 +98,11 @@
     <?php if(basename($_SERVER['PHP_SELF']) !== 'downloads.php' && basename($_SERVER['PHP_SELF']) !== 'carica.php' && basename($_SERVER['PHP_SELF']) !== 'admin.php'): ?>
         <section class="text-white py-5 text-center position-relative overflow-hidden">
             <img src="img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true"/>
-            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 user-select-none"></div>
             <div class="container position-relative z-1 py-4">
                 <h2 class="fw-bold mb-4">Hai appunti da condividere?</h2>
-                <a href="carica.php" class="btn btn-light btn-upload fw-bold px-4 py-2 rounded-3 shadow">
-                    <i class="bi bi-upload me-2" aria-hidden="true"></i>Carica qui
+                <a href="carica.php" class="btn btn-upload fw-bold px-4 py-2 rounded-3 shadow">
+                    <i class="bi bi-upload me-2 white-icon" aria-hidden="true"></i>Carica qui
                 </a>
             </div>
         </section>
@@ -112,19 +112,19 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-lg-2 col-md-2 mb-4 mb-lg-0">
+                <div class="col-lg-2 col-md-2 mb-4 mb-lg-0 user-select-none">
                     <img src="img/logo.png" alt="Logo di AlmaNotes" width="40" height="40" class="me-2"/>
                 </div>
 
                 <div class="col-lg-5 col-md-5 mb-4 mb-lg-0">
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.php" class="text-decoration-none text-body hover-danger">Home</a></li>
-                        <li class="mb-2"><a href="carica.php" class="text-decoration-none text-body hover-danger">Carica Appunti</a></li>
-                        <li class="mb-2"><a href="cerca.php" class="text-decoration-none text-body hover-danger">Cerca</a></li>
-                        <li class="mb-2"><a href="recensioni.php" class="text-decoration-none text-body hover-danger">Recensioni</a></li>
-                        <li class="mb-2"><a href="about.php" class="text-decoration-none text-body hover-danger">About</a></li>
+                        <li class="mb-2"><a href="index.php" class="text-decoration-none text-body">Home</a></li>
+                        <li class="mb-2"><a href="carica.php" class="text-decoration-none text-body">Carica Appunti</a></li>
+                        <li class="mb-2"><a href="cerca.php" class="text-decoration-none text-body">Cerca</a></li>
+                        <li class="mb-2"><a href="recensioni.php" class="text-decoration-none text-body">Recensioni</a></li>
+                        <li class="mb-2"><a href="about.php" class="text-decoration-none text-body">About</a></li>
                         <?php if(isset($_SESSION['username']) && strtolower($_SESSION['username']) === 'admin'): ?>
-                            <li class="mb-2"><a href="admin.php" class="text-decoration-none text-body hover-danger">Pannello Admin</a></li>
+                            <li class="mb-2"><a href="admin.php" class="text-decoration-none text-body">Pannello Admin</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -135,11 +135,11 @@
                             &copy; 2025 Almanotes | Tutti i diritti riservati.
                         </li>
                         <li class="mb-3 d-flex align-items-center">
-                            <i class="bi bi-github me-2"></i>
+                            <i class="bi bi-github me-2 user-select-none"></i>
                             <a href="https://github.com/Rolla04" class="text-decoration-none text-body">Luca Varale Rolla </a>
                         </li>
                         <li class="mb-3 d-flex align-items-center">
-                            <i class="bi bi-github me-2"></i>
+                            <i class="bi bi-github me-2 user-select-none"></i>
                             <a href="https://github.com/lolloantonioli" class="text-decoration-none text-body">Lorenzo Antonioli</a>
                         </li>
                     </ul>

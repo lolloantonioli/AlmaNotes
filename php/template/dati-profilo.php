@@ -11,48 +11,42 @@
                 <div class="list-group list-group-flush card shadow border border-danger-subtle rounded">
     
     <div class="list-group-item p-4 border-bottom border-danger-subtle">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+        <div class="row align-items-center">
+            <div class="col-1 user-select-none">
                 <i class="bi bi-at display-6"></i>
             </div>
-            
-            <div class="flex-grow-1 text-center px-2">
+            <div class="col-10 text-center px-2">
                 <h5 class="font-serif fw-bold mb-1">Username</h5>
                 <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Username"]; ?></p>
             </div>
-            
-            <div style="width: 50px;"></div>
+            <div class="col-1"></div>
         </div>
     </div>
 
     <div class="list-group-item p-4 border-bottom border-danger-subtle">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+        <div class="row align-items-center">
+            <div class="col-1 user-select-none">
                 <i class="bi bi-envelope display-6"></i>
             </div>
-            
-            <div class="flex-grow-1 text-center px-2">
+            <div class="col-10 text-center px-2">
                 <h5 class="font-serif fw-bold mb-1">E-mail</h5>
                 <p class="font-sans text-secondary mb-0 text-break"><?php echo $templateParams["utente"]["Email"]; ?></p>
             </div>
-
-            <div style="width: 50px;"></div>
+            <div class="col-1"></div>
         </div>
     </div>
 
     <div class="list-group-item p-4">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex justify-content-start user-select-none" style="width: 50px;">
+        <div class="row align-items-center">
+            <div class="col-1 user-select-none">
                 <i class="bi bi-key display-6"></i>
             </div>
-            
-            <div class="flex-grow-1 text-center px-2"> 
+            <div class="col-10 text-center px-2"> 
                 <h5 class="font-serif fw-bold mb-1">Password</h5>
                 <p id="password-text" class="font-sans text-secondary mb-0" data-password="<?php echo htmlspecialchars($templateParams["utente"]["Password"]); ?>">••••••••</p>
             </div>
-            
-            <div class="d-flex justify-content-end user-select-none" style="width: 50px;">
-                <i id="toggle-password-icon" class="bi bi-eye fs-4" style="cursor: pointer;" tabindex="0" role="button" aria-label="Mostra/Nascondi password"></i>
+            <div class="col-1 user-select-none text-end">
+                <i id="toggle-password-icon" class="bi bi-eye fs-4" role="button" tabindex="0" aria-label="Mostra/Nascondi password"></i>
             </div>
         </div>
     </div>
@@ -65,7 +59,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-download"></i> I file che hai scaricato
                 </h3>
-                <a href="downloads-utente.php" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Vedi</a>
+                <a href="downloads-utente.php" class="btn fw-bold px-3 shadow rounded-3 red-input">Vedi</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewdownloadedfiles"] as $appunto): ?>
@@ -99,7 +93,7 @@
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
                     <i class="bi bi-upload"></i> I file che hai caricato
                 </h3>
-                <a href="uploads-utente.php" class="btn fw-bold px-3 shadow rounded-3" style="background-color: #BB2E29; color: white;">Modifica</a>
+                <a href="uploads-utente.php" class="btn fw-bold px-3 shadow rounded-3 red-input">Modifica</a>
             </div>
             <div class="list-group shadow">
                 <?php foreach ($templateParams["previewuploadedfiles"] as $appunto): ?>
@@ -189,7 +183,7 @@
             </div>
         </div>
         <div class="col-12 text-center mt-5 mb-3">
-            <button type="button" class="btn btn-lg px-5 fw-bold shadow" style="background-color: #BB2E29; color: white;" data-bs-toggle="modal" data-bs-target="#logoutModal">
+            <button type="button" class="btn btn-lg px-5 fw-bold shadow red-input" data-bs-toggle="modal" data-bs-target="#logoutModal">
                 <i class="bi bi-box-arrow-right me-2"></i>Logout
             </button>
         </div>

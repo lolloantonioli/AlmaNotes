@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="d-flex align-items-center mb-4 gap-3">
                 <h3 class="fw-bold mb-0 d-flex align-items-center gap-2">
-                    <i class="bi bi-star"></i> Recensisci ciò che hai scaricato
+                    <i class="bi bi-star user-select-none"></i> Recensisci ciò che hai scaricato
                 </h3>
             </div>
             
@@ -47,7 +47,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">
-                <h1 class="modal-title fs-5 fw-bold" id="reviewModalLabel" style="color: #BB2E29"><i class="bi bi-star me-2"></i>Lascia una Recensione</h1>
+                <h1 class="modal-title fs-5 fw-bold red-title" id="reviewModalLabel"><i class="bi bi-star me-2"></i>Lascia una Recensione</h1>
                 <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -14,13 +14,13 @@
 <div class="container py-5">
     <div class="row g-5">
         <div class="col-12 d-flex justify-content-center gap-2 m-3">
-            <i class="bi bi-option display-6"></i>
+            <i class="bi bi-option display-6 user-select-none"></i>
             <h3 class="fw-bold mb-0 display-6">Funzionalità</h3>
         </div>
 
         <div class="col-12 col-md-4">
-            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
-                <i class="bi bi-folder fs-1 user-select-none" style="color: white;"></i>
+            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3 bg-red">
+                <i class="bi bi-folder fs-1 user-select-none text-light"></i>
             </div>
             <h4 class="fw-bold">Condivisione degli appunti</h4>
             <p class="text-body">
@@ -31,8 +31,8 @@
         </div>
 
         <div class="col-12 col-md-4">
-            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
-                <i class="bi bi-upload fs-1 user-select-none" style="color: white;"></i>
+            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3 bg-red">
+                <i class="bi bi-upload fs-1 user-select-none text-light"></i>
             </div>
             <h4 class="fw-bold">Upload semplice e sicuro</h4>
             <p class="text-body">
@@ -42,8 +42,8 @@
         </div>
 
         <div class="col-12 col-md-4">
-            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3" style="background-color: #BB2E29;">
-                <i class="bi bi-people fs-1 user-select-none" style="color: white;"></i>
+            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-3 p-3 mb-3 bg-red">
+                <i class="bi bi-people fs-1 user-select-none text-light"></i>
             </div>
             <h4 class="fw-bold">Community UniBo</h4>
             <p class="text-body">
@@ -55,7 +55,7 @@
 
     <div class="row mt-5">
         <div class="col-12 col-lg-6 ">
-            <h2 class="display-5 fw-bold mb-3" style="color: #BB2E29;">La Nostra Missione</h2>
+            <h2 class="display-5 fw-bold mb-3 red-title">La Nostra Missione</h2>
             <p class="lead">
                 Crediamo che la condivisione del sapere renda l'università più inclusiva e meno stressante.
                 Per questo vogliamo costruire una piattaforma moderna, intuitiva e completamente dedicata

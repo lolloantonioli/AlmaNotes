@@ -3,7 +3,7 @@
         <div class="modal-content rounded-4 shadow border-0">
             
             <div class="modal-header border-bottom-0 pb-0">
-                <h1 class="modal-title fs-5 fw-bold" style="color: #BB2E29;">
+                <h1 class="modal-title fs-5 fw-bold red-title">
                     <i class="bi bi-file-earmark-pdf me-2"></i>Dettagli Appunto
                 </h1>
                 <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Chiudi"></button>
@@ -18,7 +18,7 @@
                             <div class="d-flex align-items-center">
                                 <i class="bi bi-book fs-5 me-3"></i>
                                 <div>
-                                    <small class="text-muted d-block text-uppercase" style="font-size: 0.75rem;">Materia</small>
+                                    <small class="text-muted d-block text-uppercase">Materia</small>
                                     <span class="fw-semibold" id="modalSubject">...</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                             <div class="d-flex align-items-center">
                                 <i class="bi bi-person-badge fs-5 me-3"></i>
                                 <div>
-                                    <small class="text-muted d-block text-uppercase" style="font-size: 0.75rem;">Professore</small>
+                                    <small class="text-muted d-block text-uppercase">Professore</small>
                                     <span class="fw-semibold" id="modalProf">...</span>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                              <div class="d-flex align-items-center">
                                 <i class="bi bi-mortarboard fs-5 me-3"></i>
                                 <div>
-                                    <small class="text-muted d-block text-uppercase" style="font-size: 0.75rem;">Corso di Laurea</small>
+                                    <small class="text-muted d-block text-uppercase">Corso di Laurea</small>
                                     <span class="fw-semibold" id="modalCourse">...</span>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="d-flex align-items-center">
                                 <i class="bi bi-star-fill text-warning fs-5 me-3"></i>
                                 <div>
-                                    <small class="text-muted d-block text-uppercase" style="font-size: 0.75rem;">Valutazione</small>
+                                    <small class="text-muted d-block text-uppercase">Valutazione</small>
                                     <span class="fw-bold text-dark">
                                         <span id="modalAvg">0</span>/5 
                                         <small class="fw-normal text-muted ms-1">(<span id="modalCount">0</span>)</small>
@@ -61,7 +61,7 @@
                             <div class="d-flex align-items-center">
                                 <i class="bi bi-cloud-arrow-down fs-5 me-3"></i>
                                 <div>
-                                    <small class="text-muted d-block text-uppercase" style="font-size: 0.75rem;">Download</small>
+                                    <small class="text-muted d-block text-uppercase">Download</small>
                                     <span class="fw-semibold" id="modalDownloads">0</span>
                                 </div>
                             </div>

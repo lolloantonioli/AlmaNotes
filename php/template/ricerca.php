@@ -1,7 +1,7 @@
 <div class="position-relative text-white py-5 mb-4 shadow-sm">
     <img src="img/sfondo.jpg" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" aria-hidden="true">
     
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 user-select-none"></div>
     
     <div class="container text-center position-relative z-1">
         <h1 class="display-5 fw-bold mb-3">Cerca i tuoi appunti</h1>
@@ -89,7 +89,7 @@
         <!-- Chip Filtri -->
         <div class="col-12 mb-4">
             <button type="button" class="badge d-inline-flex align-items-center p-2 ps-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-pill" data-bs-toggle="modal" data-bs-target="#filtersModal">
-                <i class="bi bi-funnel me-2"></i> Filtri
+                <i class="bi bi-funnel me-2 user-select-none"></i> Filtri
                 <?php if(!empty($templateParams["selected_prof"]) || !empty($templateParams["selected_subject"]) || !empty($templateParams["selected_course"]) || !empty($templateParams["selected_user"])): ?>
                     <span class="badge bg-danger ms-2">
                         <?php echo intval(!empty($templateParams["selected_prof"])) + intval(!empty($templateParams["selected_subject"])) + intval(!empty($templateParams["selected_course"])) + intval(!empty($templateParams["selected_user"])); ?>
@@ -132,7 +132,7 @@
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1 fw-bold"><?php echo htmlspecialchars($appunto["Nome"]); ?></h5>
                                     <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo round($appunto["media_recensioni"], 1); ?></span>                                </div>
-                                <p class="small text-secondary mb-1">Prof. <?php echo htmlspecialchars($appunto["Professore"]); ?> - <?php echo htmlspecialchars($appunto["Corso_Laurea"]); ?></p>
+                                <p class="mb-1">Prof. <?php echo htmlspecialchars($appunto["Professore"]); ?> - <?php echo htmlspecialchars($appunto["Corso_Laurea"]); ?></p>
                                 <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                             </a>
                             <?php endforeach; ?>
@@ -159,7 +159,7 @@
                                     <h5 class="mb-1 fw-bold"><?php echo htmlspecialchars($appunto["Nome"]); ?></h5>
                                     <span class="small text-muted"><i class="bi bi-star-fill text-warning"></i> <?php echo round($appunto["media_recensioni"], 1); ?></span>
                                 </div>
-                                <p class="small text-secondary mb-1">Prof. <?php echo htmlspecialchars($appunto["Professore"]); ?> - <?php echo htmlspecialchars($appunto["Corso_Laurea"]); ?></p>
+                                <p class="mb-1">Prof. <?php echo htmlspecialchars($appunto["Professore"]); ?> - <?php echo htmlspecialchars($appunto["Corso_Laurea"]); ?></p>
                                 <p class="small text-muted mb-0"><i class="bi bi-download"></i> <?php echo $appunto["Download"]; ?> download</p>
                             </a>
                             <?php endforeach; ?>
@@ -207,7 +207,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow border-0">
             <div class="modal-header border-bottom-0 pb-0">
-                <h1 class="modal-title fs-5 fw-bold" id="filtersModalLabel" style="color: #BB2E29;"><i class="bi bi-funnel me-2"></i>Seleziona Filtri</h1>
+                <h1 class="modal-title fs-5 fw-bold red-title" id="filtersModalLabel"><i class="bi bi-funnel me-2"></i>Seleziona Filtri</h1>
                 <button type="button" class="btn-close focus-ring focus-ring-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

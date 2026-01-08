@@ -42,7 +42,7 @@
                 </div>
             <?php endif; ?>
             
-            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3" style="background-color: #BB2E29; color: white;">Torna al profilo</a>
+            <a href="profilo.php" class="btn fw-bold px-3 mt-4 shadow rounded-3 red-input">Torna al profilo</a>
 
         </div>
     </div>

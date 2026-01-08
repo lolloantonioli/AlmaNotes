@@ -45,13 +45,13 @@ class Database {
     }
 
     public function insertNote($nome, $professore, $insegnamento, $file, $utente) {
-        $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, Insegnamento, NomeFile, Data, Utente, Download) VALUES (?, ?, ?, ?, CURDATE(), ?, 0)");
-        $stmt->bind_param("sssss", $nome, $professore, $insegnamento, $file, $utente);
-        $executed = $stmt->execute();
-        if (!$executed) {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO appunti (Nome, Professore, Insegnamento, NomeFile, Data, Utente, Download) VALUES (?, ?, ?, ?, CURDATE(), ?, 0)");
+            $stmt->bind_param("sssss", $nome, $professore, $insegnamento, $file, $utente);
+            return $stmt->execute();
+        } catch (mysqli_sql_exception $e) {
             return false;
         }
-        return ($stmt->affected_rows > 0);
     }
 
     public function insertUser($username, $email, $password) {

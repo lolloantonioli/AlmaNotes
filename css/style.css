@@ -1,8 +1,40 @@
-.login-background, .signup-background {
+.login-background, .signup-background, .upload-background {
     background-image: url("../img/sfondo.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+h1, button, thead {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+small, span, tbody, p, a {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+h2, h3, h4, h5 {
+    font-family: 'Merriweather';
+}
+
+a > i, div > i, section i {
+    color: #BB2E29;
+}
+
+a > h1, h3, h4, h5, a {
+    color: #BB2E29;
+}
+
+.nav-link {
+    color: #BB2E29 !important;
+}
+
+.bg-red {
+    background-color: #BB2E29 !important;
+}
+
+.red-btn {
+    color:#BB2E29 !important;
 }
 
 .red-title {
@@ -17,68 +49,25 @@
 }
 
 .red-input:hover, .red-input:focus, .red-input:active, .red-input:focus-visible {
-    background-color: transparent !important;
+    background-color: white !important;
     color: #BB2E29 !important;
     border-color: #BB2E29 !important;
 }
 
-.nav-text {
-    color: #BB2E29;
-}
-
 .btn-upload {
+    background-color: white;
     color: #BB2E29;
+    border: 2px solid white;
+    transition: all 0.3s ease-in-out;
 }
 
-.btn-upload i {
-    color: #BB2E29;
+.btn-upload:hover, .btn-upload:focus, .btn-upload:active, .btn-upload:focus-visible {
+    opacity: 0.8 !important;
+    background-color: white !important;
+    color: #BB2E29 !important;
+    border: 2px solid white !important;
 }
 
-.btn-upload:hover {
-    color: #BB2E29;
-}
-
-section i {
-    color: #BB2E29;
-}
-
-a > h1 {
-    color: #BB2E29;
-}
-
-a > i { /*icona persona*/
-    color: #BB2E29;
-}
-
-a {
-    color: #BB2E29;
-}
-
-div > i {
-    color: #BB2E29;
-}
-
-h3, h4, h5 {
-    color: #BB2E29;
-}
-
-h1, button {
-    font-family: 'Merriweather Sans', sans-serif;
-}
-
-h2, h3, h4, h5 {
-    font-family: 'Merriweather';
-}
-
-p, a {
-    font-family: 'Source Sans 3';
-}
-
-footer {
-    color: #BB2E29;
-}
-
-/* Star Rating Button Styles */
 .star-btn {
     font-size: 2rem;
     color: #ddd;

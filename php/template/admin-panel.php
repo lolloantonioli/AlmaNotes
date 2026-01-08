@@ -1,5 +1,5 @@
 <section class="container py-5">
-    <h2 class="fw-bold mb-4" style="color: #BB2E29;"><i class="bi bi-shield-lock"></i> Amministrazione</h2>
+    <h2 class="fw-bold mb-4 red-title"><i class="bi bi-shield-lock"></i> Amministrazione</h2>
 
     <ul class="nav nav-tabs mb-4" id="adminTab" role="tablist">
         <li class="nav-item">
@@ -94,7 +94,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title fw-bold" style="color: #BB2E29;">
+                <h2 class="modal-title fw-bold red-title">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>Attenzione
                 </h2>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

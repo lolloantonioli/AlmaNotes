@@ -3,13 +3,13 @@
     $jsonDati = json_encode($listaDati);
 ?>
 
-<section class="bg-light d-flex flex-column justify-content-center align-items-center vh-100" style="background-image: url(img/sfondo.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class="bg-light d-flex flex-column justify-content-center align-items-center vh-100 upload-background">
     <div class="bg-light bg-opacity-95 rounded-4 shadow-lg p-4 p-sm-5 mx-3" style="max-width: 450px; width: 100%;">
         <div class="w-100 px-3" style="max-width: 400px;">
             
             <div class="text-center mb-0">
-                <h1 class="fw-bold mb-4 d-flex align-items-center justify-content-center gap-2" style="color: #BB2E29">
-                    <i class="bi bi-upload fs-2"></i>
+                <h1 class="fw-bold mb-4 d-flex align-items-center justify-content-center gap-2 red-title">
+                    <i class="bi bi-upload fs-2 user-select-none"></i>
                     Carica
                 </h1>
             </div>
@@ -30,7 +30,7 @@
                 <div class="mb-3">
                     <label for="displayScelta" class="form-label">Corso e Professore</label>
                     <div class="input-group">
-                        <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="displayScelta" placeholder="Clicca per selezionare..." readonly style="background-color: white; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalRicerca" required>
+                        <input type="text" class="form-control focus-ring focus-ring-danger border border-danger-subtle" id="displayScelta" placeholder="Clicca per selezionare..." readonly data-bs-toggle="modal" data-bs-target="#modalRicerca" role="button" required>
                     </div>
 
                 </div>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn fw-bold py-2 rounded-3 shadow m-0 fs-4" style="background-color: #BB2E29; color: white;">Carica</button>
+                    <button type="submit" class="btn fw-bold py-2 rounded-3 shadow m-0 fs-4 red-input">Carica</button>
                 </div>
             </form>
         </div>
