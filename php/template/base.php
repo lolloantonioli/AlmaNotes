@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?php echo $templateParams["titolo"]; ?></title>
-    <link rel="icon" type="image/png" href="img/logo.png"/>
+    <link rel="icon" type="image/png" href="../img/logo.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;700&family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
@@ -19,7 +19,7 @@
                 </button>
     
                 <a class="navbar-brand fw-bold fs-3 mx-auto order-1 d-flex align-items-center gap-2 user-select-none" href="index.php">
-                    <img src="img/logo.png" alt="Logo di AlmaNotes" width="55" height="55"/><h1>AlmaNotes</h1>
+                    <img src="../img/logo.png" alt="Logo di AlmaNotes" width="55" height="55"/><h1>AlmaNotes</h1>
                 </a>
     
                 <div class="d-flex align-items-center order-2 order-lg-3 user-select-none">
@@ -113,7 +113,7 @@
             <div class="row">
                 
                 <div class="col-lg-2 col-md-2 mb-4 mb-lg-0 user-select-none">
-                    <img src="img/logo.png" alt="Logo di AlmaNotes" width="40" height="40" class="me-2"/>
+                    <img src="../img/logo.png" alt="Logo di AlmaNotes" width="40" height="40" class="me-2"/>
                 </div>
 
                 <div class="col-lg-5 col-md-5 mb-4 mb-lg-0">
