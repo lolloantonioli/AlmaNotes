@@ -173,7 +173,7 @@
                     <ul class="pagination">
                         <?php if($templateParams["currentPage"] > 1): ?>
                         <li class="page-item">
-                            <a class="page-link text-danger" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $templateParams["currentPage"] - 1; ?>" aria-label="Precedente">
+                            <a class="page-link" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $templateParams["currentPage"] - 1; ?>" aria-label="Precedente">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -182,14 +182,14 @@
                         <?php for($i = 1; $i <= $templateParams["totalPages"]; $i++): ?>
                             <?php if($i >= $templateParams["currentPage"] - 2 && $i <= $templateParams["currentPage"] + 2): ?>
                             <li class="page-item <?php echo ($i == $templateParams["currentPage"]) ? 'active' : ''; ?>">
-                                <a class="page-link text-danger" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                <a class="page-link" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
                             </li>
                             <?php endif; ?>
                         <?php endfor; ?>
 
                         <?php if($templateParams["currentPage"] < $templateParams["totalPages"]): ?>
                         <li class="page-item">
-                            <a class="page-link text-danger" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $templateParams["currentPage"] + 1; ?>" aria-label="Successiva">
+                            <a class="page-link" href="cerca.php?q=<?php echo urlencode($templateParams["search_text"]); ?>&prof=<?php echo urlencode($templateParams["selected_prof"]); ?>&subject=<?php echo urlencode($templateParams["selected_subject"]); ?>&course=<?php echo urlencode($templateParams["selected_course"]); ?>&user=<?php echo urlencode($templateParams["selected_user"]); ?>&page=<?php echo $templateParams["currentPage"] + 1; ?>" aria-label="Successiva">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
